@@ -1,0 +1,291 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.mainContainer {
+  background-image: radial-gradient(HSLA(30, 59%, 17%, 1), HSLA(32, 60%, 19%, 1));
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  border: 2px solid black;
+  postion: relative;
+}
+.content {
+  width: 100%;
+  background-color: HSLA(26, 40%, 92%, 1);
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 1%;
+}
+
+.pageTitle {
+  color: white;
+  font-size: 1.75em;
+  text-align: center;
+  margin: 4%;
+}
+
+.pageFooter {
+  margin: 15%;
+}
+
+/* START Initial Page*/
+.sendMoneyBtn, .viewTransactBtn {
+  height: 125px;
+  background-image: linear-gradient(#f5f5f5, #bababa);
+  text-align: center;
+  width: 87%;
+
+  border-radius: 6px;
+  border: transparent;
+
+  .sendMoneyTitle, .viewTransactTitle {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+.sendMoneyBtn {
+  margin: 21% 6%;
+}
+.viewTransactBtn {
+  margin: 1% 6% 23%;
+}
+
+/* END Initial Page*/
+
+
+
+
+/* START Send Money Page*/
+
+.input-container {
+   position: relative;
+
+}
+.input-container input {
+    width: 100%;
+}
+
+.input-container .input-label {
+  position: absolute;
+  top: 7px;
+  padding-left: 5px;
+  width: 45px;
+}
+
+.amount-input {
+  text-indent: 50px;
+}
+
+
+.inputEmailPrepend, .inputAmountPrepend, .messageInputLabel {
+  font-size: 1.2em;
+  margin-left: 8px;
+  font-weight: 400;
+}
+
+.wrapper {
+  background-color: HSLA(48, 33%, 97%, 1);
+  padding: 2%;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 4%;
+}
+.emailInput {
+  border: none;
+  background-color: transparent;
+  width: 50%;
+  outline: none;
+}
+
+.email-glyphicon {
+  float: right;
+}
+
+.amountInput {
+  border: none;
+  background-color: transparent;
+  width: 50%;
+  outline: none;
+}
+
+.currencyBtnGroup {
+  float: right;
+  margin-top: -6px;
+}
+
+.currencyBtn {
+  border: 2px solid black;
+}
+
+.messageInput {
+  border: none !important;
+  background-color: transparent !important;
+  outline: none;
+  resize: none;
+  box-shadow: none !important;
+
+}
+.messageInputLabel {
+  font-weight: 400;
+}
+
+.dropdown-menu {
+  margin: 0;
+
+  li {
+    margin: 0;
+  }
+}
+
+// payment choice buttons
+
+.sendPayChoiceLabel {
+  padding-left:4%;
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+.paymentChoiceWrapper {
+  background-color: HSLA(48, 33%, 97%, 1);
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 4%;
+
+
+  .paymentType {
+    margin: 0;
+  }
+  /* .sendingMoneyChoice, .payingForGoodsChoice {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+  .sendingMoneyChoice {
+    border-radius:
+    border-bottom: 3px solid black;
+  }
+  .sendingMoneyChoice:focus {
+    background-color: blue;
+  }
+  .payingForGoodsChoice:focus {
+    background-color:red;
+  } */
+
+
+  .sendingMoneyChoice, .payingForGoodsChoice {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2em;
+    font-weight: 400;
+    text-align: left;
+    height: 60px;
+  }
+  .sendingMoneyChoice {
+    border-bottom: 2px solid black;
+    border-bottom-left-radius: 0;
+  }
+  .sendingMoneyChoiceGlyphicon, .payingForGoodsChoiceGlyphicon {
+    background-color: transparent;
+    border: none;
+  }
+  .sendingMoneyChoiceGlyphicon {
+    border-bottom: 2px solid black;
+    border-bottom-right-radius: 0;
+
+  }
+}
+
+
+/* Footer buttons */
+
+.buttonWrapper {
+  width: 100%;
+  background-image: radial-gradient(HSLA(30, 59%, 17%, 1), HSLA(32, 60%, 19%, 1));
+  padding-top: 3%;
+  padding-bottom: 13%;
+  margin-top: 10%;
+
+  .clearFormLink {
+    float: left;
+    margin-left: 5%;
+  }
+
+  .nextPageLink {
+    float: right;
+    margin-right: 5%;
+  }
+
+  .nextPageButton, .clearFormButton {
+    width: 200px;
+    background-image: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
+    height: 60px;
+    color: HSLA(0, 0%, 25%, 1);
+    font-size: 1.5em;
+    font-weight: 400;
+    outline: none;
+  }
+
+}
+
+/* Black Image overlay*/
+.overlay {
+  background-color: HSLA(0, 0%, 0%, 0.7);
+  opacity: 1;
+  z-index: 9999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+}
+
+/* Money Sent Confirmation Page*/
+.successWrapper {
+  margin-top: 15%;
+  margin-bottom: 20%;
+}
+.confirmation {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.fa-check {
+  color: HSLA(29, 63%, 56%, 1);
+  margin-left: 43%;
+}
+
+.buttonWrapper {
+  .sendMoreMoneyLink {
+    float: left;
+    margin-left: 5%;
+  }
+
+  .transactionHistoryLink {
+    float: right;
+    margin-right: 5%;
+  }
+
+  .sendMoreMoneyBtn, .transactionHistoryBtn {
+
+    background-image: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
+    height: 60px;
+    color: HSLA(0, 0%, 25%, 1);
+    font-size: 1.5em;
+    font-weight: 500;
+    outline: none;
+  }
+}
