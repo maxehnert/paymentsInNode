@@ -4,8 +4,8 @@ body {
   text-decoration: none;
 }
 
-a {
-  color: #00B7FF;
+button {
+  color: HSLA(0, 0%, 25%, 1);
 }
 
 .mainContainer {
@@ -56,6 +56,10 @@ a {
 }
 .viewTransactBtn {
   margin: 1% 6% 23%;
+}
+.homeFooter {
+  margin-bottom: 15%;
+  background-color: HSLA(34, 70%, 13%, 1);
 }
 
 /* END Initial Page*/
@@ -287,5 +291,56 @@ a {
     font-size: 1.5em;
     font-weight: 500;
     outline: none;
+  }
+}
+
+/* Transaction History Page*/
+.list-group {
+  margin-bottom: 0 !important;
+}
+
+.list-group-item {
+  background-color:HSLA(28, 46%, 85%, 1) !important;
+  border: none !important;
+  font-size: 1.5em;
+  font-weight: 400;
+
+}
+
+.list-group-item-container {
+  height: 500px;
+  overflow: scroll;
+
+  .transactionsDateString {
+    text-align: left;
+  }
+  .transactionsEmail {
+    text-align: center;
+  }
+  .transactionsCurrency {
+    text-align: right;
+  }
+}
+
+.transactionBtnWrapper {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  //margin-top: 10%;
+  background-color: HSLA(34, 70%, 13%, 1);
+
+  .backHomeLink {
+
+  }
+
+  .backHomeBtn {
+
+    background-image: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
+    height: 60px;
+    color: HSLA(0, 0%, 25%, 1);
+    font-size: 1.5em;
+    font-weight: 500;
+    outline: none;
+    width: 93%;
+    margin-left: 3%;
   }
 }

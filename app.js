@@ -7,13 +7,15 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var fs = require('fs');
 var hbs = require('hbs');
+var moment = require('moment');
+
 
 var routes = require('./routes/index');
 var transactions = require('./routes/transactions');
 var sendMoney = require('./routes/sendMoney');
 var success = require('./routes/success');
 
-mongoose.connect('mongodb://localhost/paypalExercise', function(err) {
+mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
     if(err) {
         console.log('connection error', err);
     } else {
@@ -41,6 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/send', sendMoney);
+app.use('/send', transactions);
 app.use('/success', success);
 app.use('/transactions', transactions);
 

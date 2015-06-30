@@ -1,0 +1,31 @@
+
+<!-- transactions: {{! transactions}} -->
+
+
+<div class="list-group">
+
+  <div class="list-group-item-container">
+{{#each transactions}}
+
+  <div class="list-group-item row">
+    <div class="transactionsDateString col-md-4">
+      {{dateString}}
+    </div>
+    <div class="transactionsEmail col-md-4">
+      {{email}}
+    </div>
+    <div class="transactionsCurrency col-md-4">
+      {{currencySymbol}}{{amount}}
+    </div>
+  </div>
+
+
+{{/each}}
+</div>
+</div>
+<div class="transactionBtnWrapper">
+  <a href="/" class="backHomeLink">
+    <button class="btn btn-group backHomeBtn">Back</button>
+  </a>
+
+</div>

@@ -1,5 +1,5 @@
 
-    <form action="./routes/transactions" method="post" class ="myForm">
+    <form action="/send" method="post" class ="myForm">
 
       <div class="form-group">
 
@@ -18,15 +18,15 @@
         <div class="wrapper">
           <span class="inputAmountPrepend">Amount:</span>
             <!-- <span class="CurrencySymbol"> -->
-          <input type="text" required class="amountInput" name="amount" placeholder="enter amount">
+          <input type="text"  class="amountInput" name="amount" placeholder="enter amount">
 
           <!-- Single button -->
           <div class="btn-group currencyBtnGroup">
             <button type="button" class="btn btn-default dropdown-toggle currencyBtn" data-toggle="dropdown" aria-haspopup="true" name="service" aria-expanded="false">
               USD <span class="caret"></span>
             </button>
-            <ul required class="dropdown-menu">
-              <!-- <li class="ddC" value="$"><a href="#">USD</a></li>
+            <ul  class="dropdown-menu">
+         <!-- <li class="ddC" value="$"><a href="#">USD</a></li>
               <li class="ddC" value="1"><a href="#">GBP</a></li>
               <li class="ddC"><a href="#">YEN</a></li> -->
             </ul>
@@ -48,13 +48,13 @@
 
           <div class="input-group">
 
-            <input type="button" required class="form-control sendingMoneyChoice"  aria-describedby="basic-addon12" value="I'm sending money to friends or family">
+            <input type="button" class="form-control sendingMoneyChoice"  aria-describedby="basic-addon12" name="service" value="I'm sending money to friends or family">
             <span class="glyphicon glyphicon-ok-sign sendingMoneyChoiceGlyphicon input-group-addon" id="basic-addon12" aria-hidden="true"></span>
           </div>
 
           <div class="input-group">
 
-            <input type="button" required class="form-control payingForGoodsChoice"  aria-describedby="basic-addon13" value="I'm paying for goods or services">
+            <input type="button" class="form-control payingForGoodsChoice"  aria-describedby="basic-addon13" value="I'm paying for goods or services">
             <span class="glyphicon glyphicon-ok-sign payingForGoodsChoiceGlyphicon input-group-addon" id="basic-addon13" aria-hidden="true"></span>
           </div>
       </div>

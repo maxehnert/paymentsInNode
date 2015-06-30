@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var Transactions = require('../models/transactions.js');
+var Transaction = require('../models/transaction.js');
 
 /* GET /transactions listing. */
 router.get('/', function(req, res, next) {
@@ -10,25 +10,30 @@ router.get('/', function(req, res, next) {
   // /*Render the view and HBS */
   // res.render('transactions', {pageTitle: 'Transaction History'});
 
-  Transactions.find(function (err, transactions) {
-    if (err) return next(err);
-    res.json(transactions);
+  Transaction.find(function (err, transactionsArray) {
+    if(err){console.log(err)}
+    else {
+      res.render('transactions', { pageTitle: 'Transaction History', transactions: transactionsArray});
+    }
+    // res.json(transactions);
   });
 
 
 });
 
 /* POST /transactions */
-router.post('/', function(req, res, next) {
-  // Transactions.create(req.body, function (err, post) {
-  //   if (err) return next(err);
-  //   res.json(post);
-  // });
+router.post('/', function(req, res) {
 
-  new Transactions({email : req.body.email})
-    .save(function(err, comment) {
-      console.log(email)
-      // res.redirect('success');
+  var newTransaction = new Transaction(req.body)
+
+    .save(function(err, body ) {
+      if(err) {
+        console.log(err);
+      }
+      else {
+        console.log(newTransaction);
+        res.redirect('success');
+      }
     });
 
   // /* POST form. */
@@ -47,30 +52,30 @@ router.post('/', function(req, res, next) {
 
 });
 
-/* GET /transactions/id */
-router.get('/:id', function(req, res, next) {
-  Transactions.findById(req.params.id, function (err, post) {
-    if (err) return next(err);
-    res.json(post);
-  });
-});
-
-
-/* PUT /transactions/:id */
-router.put('/:id', function(req, res, next) {
-  Transactions.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
-    if (err) return next(err);
-    res.json(post);
-  });
-});
-
-
-/* DELETE /transactions/:id */
-router.delete('/:id', function(req, res, next) {
-  Transactions.findByIdAndRemove(req.params.id, req.body, function (err, post) {
-    if (err) return next(err);
-    res.json(post);
-  });
-});
+// /* GET /transactions/id */
+// router.get('/:id', function(req, res, next) {
+//   Transaction.findById(req.params.id, function (err, post) {
+//     if (err) return next(err);
+//     res.json(post);
+//   });
+// });
+//
+//
+// /* PUT /transactions/:id */
+// router.put('/:id', function(req, res, next) {
+//   Transaction.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+//     if (err) return next(err);
+//     res.json(post);
+//   });
+// });
+//
+//
+// /* DELETE /transactions/:id */
+// router.delete('/:id', function(req, res, next) {
+//   Transaction.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+//     if (err) return next(err);
+//     res.json(post);
+//   });
+// });
 
 module.exports = router;
