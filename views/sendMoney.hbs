@@ -1,75 +1,76 @@
+<form action="/send" method="post" class ="myForm">
 
-    <form action="/send" method="post" class ="myForm">
-
-      <div class="form-group">
-
-        <div class="wrapper">
-          <span class="inputEmailPrepend">To:</span>
-
-          <input type="email" required class="emailInput" name="email" placeholder="enter email address">
-          <span class="glyphicon glyphicon-ok-sign email-glyphicon" aria-hidden="true"></span>
-        </div>
-
-
-    </div>
-
-    <div class="form-group">
-
-        <div class="wrapper">
-          <span class="inputAmountPrepend">Amount:</span>
-            <!-- <span class="CurrencySymbol"> -->
-          <input type="text"  class="amountInput" name="amount" placeholder="enter amount">
-
-          <!-- Single button -->
-          <div class="btn-group currencyBtnGroup">
-            <button type="button" class="btn btn-default dropdown-toggle currencyBtn" data-toggle="dropdown" aria-haspopup="true" name="service" aria-expanded="false">
-              USD <span class="caret"></span>
-            </button>
-            <ul  class="dropdown-menu">
-         <!-- <li class="ddC" value="$"><a href="#">USD</a></li>
-              <li class="ddC" value="1"><a href="#">GBP</a></li>
-              <li class="ddC"><a href="#">YEN</a></li> -->
-            </ul>
-          </div>
-        </div>
-    </div>
-
+  <div class="form-group">
     <div class="wrapper">
-      <label for="message" class="messageInputLabel">Message (optional): </label>
-      <textarea class="form-control messageInput" name="message" rows="3"></textarea>
+      <span class="inputEmailPrepend">To:</span>
+      <input type="email"
+             required class="emailInput"
+             name="email"
+             placeholder="enter email address">
+      <span class="glyphicon glyphicon-ok-sign email-glyphicon" aria-hidden="true"></span>
     </div>
+  </div>
 
+  <div class="form-group">
+    <div class="wrapper">
+      <span class="inputAmountPrepend">Amount:</span>
+        <!-- <span class="CurrencySymbol"> -->
+      <input type="text"  class="amountInput" name="amount" placeholder="enter amount">
 
-      <label for="selection" class="sendPayChoiceLabel">What's this payment for?</label>
-
-      <div class="paymentChoiceWrapper">
-
-        <div class="list-group paymentType">
-
-          <div class="input-group">
-
-            <input type="button" class="form-control sendingMoneyChoice"  aria-describedby="basic-addon12" name="service" value="I'm sending money to friends or family">
-            <span class="glyphicon glyphicon-ok-sign sendingMoneyChoiceGlyphicon input-group-addon" id="basic-addon12" aria-hidden="true"></span>
-          </div>
-
-          <div class="input-group">
-
-            <input type="button" class="form-control payingForGoodsChoice"  aria-describedby="basic-addon13" value="I'm paying for goods or services">
-            <span class="glyphicon glyphicon-ok-sign payingForGoodsChoiceGlyphicon input-group-addon" id="basic-addon13" aria-hidden="true"></span>
-          </div>
+      <!-- Single button -->
+      <div class="btn-group currencyBtnGroup">
+        <button type="button"
+                class="btn btn-default dropdown-toggle currencyBtn"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                name="service">
+          USD <span class="caret"></span>
+        </button>
+        <ul  class="dropdown-menu">
+         <!-- Inserting from main.js
+         <li name='currency'><a href='#'>"+val.currency+"</a></li> -->
+        </ul>
       </div>
     </div>
-    <div class="buttonWrapper ">
-      <a href="#" class="clearFormLink">
-        <button class="btn btn-group clearFormButton">Clear</button>
-      </a>
-      <a href="success" class="nextPageLink">
-        <button class="btn btn-group nextPageButton" type="submit">Next</button>
-      </a>
+  </div>
+  <div class="wrapper">
+    <label for="message" class="messageInputLabel">Message (optional): </label>
+    <textarea class="form-control messageInput" name="message" rows="3"></textarea>
+  </div>
+
+  <label for="selection" class="sendPayChoiceLabel">What's this payment for?</label>
+  <div class="paymentChoiceWrapper">
+    <div class="list-group paymentType">
+      <div class="input-group">
+        <input type="button"
+               class="form-control sendingMoneyChoice"
+               aria-describedby="basic-addon12"
+               name="service"
+               value="I'm sending money to friends or family">
+        <span class="glyphicon glyphicon-ok-sign sendingMoneyChoiceGlyphicon input-group-addon"
+              id="basic-addon12"
+              aria-hidden="true">
+        </span>
+        </div>
+        <div class="input-group">
+          <input type="button"
+                 class="form-control payingForGoodsChoice"
+                 aria-describedby="basic-addon13"
+                 value="I'm paying for goods or services">
+          <span class="glyphicon glyphicon-ok-sign payingForGoodsChoiceGlyphicon input-group-addon"
+                id="basic-addon13"
+                aria-hidden="true">
+          </span>
+        </div>
     </div>
-
-
-    </form>
-
-
-<!-- On this page use handlebar if statements to switch button and partial views to render the success view. I guess this is pretty much true across the board though. Try no to use aria or data-* to switch the buttons. If anything use css but best to use hbs i think. -->
+  </div>
+  <div class="buttonWrapper ">
+    <a href="#" class="clearFormLink">
+      <button class="btn btn-group clearFormButton">Clear</button>
+    </a>
+    <a href="success" class="nextPageLink">
+      <button class="btn btn-group nextPageButton" type="submit">Next</button>
+    </a>
+  </div>
+</form>

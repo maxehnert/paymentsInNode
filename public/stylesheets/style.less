@@ -1,3 +1,13 @@
+/* Notes for improvement
+- add variables for font-size 1.2 and 1.5em
+- nest classes to avoid needing !important because of bootstrap
+- colors are all over the place, use 1 style only HSLA
+- create variable for colors also
+- probably use a mixin for font-size, weight-color
+- width variables;
+- background-color variable;
+*/
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -10,24 +20,25 @@ button {
 
 .mainContainer {
   background-image: radial-gradient(HSLA(30, 59%, 17%, 1), HSLA(32, 60%, 19%, 1));
+  border: 2px solid black;
   padding-left: 0px !important;
   padding-right: 0px !important;
-  border: 2px solid black;
   postion: relative;
 }
+
 .content {
-  width: 100%;
   background-color: HSLA(26, 40%, 92%, 1);
   margin-right: auto;
   margin-left: auto;
   padding-top: 1%;
+  width: 100%;
 }
 
 .pageTitle {
   color: white;
   font-size: 1.75em;
-  text-align: center;
   margin: 4%;
+  text-align: center;
 }
 
 .pageFooter {
@@ -35,16 +46,17 @@ button {
 }
 
 /* START Initial Page*/
-.sendMoneyBtn, .viewTransactBtn {
-  height: 125px;
+.sendMoneyBtn,
+.viewTransactBtn {
   background-image: linear-gradient(#f5f5f5, #bababa);
+  border-radius: 6px;
+  border: transparent;
+  height: 125px;
   text-align: center;
   width: 87%;
 
-  border-radius: 6px;
-  border: transparent;
-
-  .sendMoneyTitle, .viewTransactTitle {
+  .sendMoneyTitle,
+  .viewTransactTitle {
     margin-top: auto;
     margin-bottom: auto;
     font-size: 1.5em;
@@ -64,23 +76,22 @@ button {
 
 /* END Initial Page*/
 
-
-
-
 /* START Send Money Page*/
 
 .input-container {
    position: relative;
 
 }
+
 .input-container input {
-    width: 100%;
+  width: 100%;
 }
 
-.input-container .input-label {
+.input-container
+.input-label {
+  padding-left: 5px;
   position: absolute;
   top: 7px;
-  padding-left: 5px;
   width: 45px;
 }
 
@@ -88,8 +99,9 @@ button {
   text-indent: 50px;
 }
 
-
-.inputEmailPrepend, .inputAmountPrepend, .messageInputLabel {
+.inputEmailPrepend,
+.inputAmountPrepend,
+.messageInputLabel {
   font-size: 1.2em;
   margin-left: 8px;
   font-weight: 400;
@@ -97,16 +109,16 @@ button {
 
 .wrapper {
   background-color: HSLA(48, 33%, 97%, 1);
-  padding: 2%;
   border: 2px solid black;
   border-radius: 10px;
   margin: 4%;
+  padding: 2%;
 }
 .emailInput {
-  border: none;
   background-color: transparent;
-  width: 50%;
+  border: none;
   outline: none;
+  width: 50%;
 }
 
 .email-glyphicon {
@@ -114,8 +126,8 @@ button {
 }
 
 .amountInput {
-  border: none;
   background-color: transparent;
+  border: none;
   width: 50%;
   outline: none;
 }
@@ -152,7 +164,7 @@ button {
 // payment choice buttons
 
 .sendPayChoiceLabel {
-  padding-left:4%;
+  padding-left: 4%;
   font-size: 1.2em;
   font-weight: 400;
 }
@@ -163,32 +175,12 @@ button {
   border-radius: 10px;
   margin: 4%;
 
-
   .paymentType {
     margin: 0;
   }
-  /* .sendingMoneyChoice, .payingForGoodsChoice {
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    outline: none;
-    text-align: left;
-    font-size: 1.2em;
-    font-weight: 400;
-  }
-  .sendingMoneyChoice {
-    border-radius:
-    border-bottom: 3px solid black;
-  }
-  .sendingMoneyChoice:focus {
-    background-color: blue;
-  }
-  .payingForGoodsChoice:focus {
-    background-color:red;
-  } */
 
-
-  .sendingMoneyChoice, .payingForGoodsChoice {
+  .sendingMoneyChoice,
+  .payingForGoodsChoice {
     background-color: transparent;
     border: none;
     font-size: 1.2em;
@@ -200,7 +192,8 @@ button {
     border-bottom: 2px solid black;
     border-bottom-left-radius: 0;
   }
-  .sendingMoneyChoiceGlyphicon, .payingForGoodsChoiceGlyphicon {
+  .sendingMoneyChoiceGlyphicon,
+  .payingForGoodsChoiceGlyphicon {
     background-color: transparent;
     border: none;
   }
@@ -231,7 +224,8 @@ button {
     margin-right: 5%;
   }
 
-  .nextPageButton, .clearFormButton {
+  .nextPageButton,
+  .clearFormButton {
     width: 200px;
     background-image: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
     height: 60px;
@@ -240,7 +234,6 @@ button {
     font-weight: 400;
     outline: none;
   }
-
 }
 
 /* Black Image overlay*/
@@ -253,7 +246,6 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-
 }
 
 /* Money Sent Confirmation Page*/
@@ -273,6 +265,7 @@ button {
 }
 
 .buttonWrapper {
+
   .sendMoreMoneyLink {
     float: left;
     margin-left: 5%;
@@ -283,8 +276,8 @@ button {
     margin-right: 5%;
   }
 
-  .sendMoreMoneyBtn, .transactionHistoryBtn {
-
+  .sendMoreMoneyBtn,
+  .transactionHistoryBtn {
     background-image: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
     height: 60px;
     color: HSLA(0, 0%, 25%, 1);
@@ -314,9 +307,11 @@ button {
   .transactionsDateString {
     text-align: left;
   }
+
   .transactionsEmail {
     text-align: center;
   }
+
   .transactionsCurrency {
     text-align: right;
   }
@@ -325,15 +320,9 @@ button {
 .transactionBtnWrapper {
   padding-top: 3%;
   padding-bottom: 3%;
-  //margin-top: 10%;
   background-color: HSLA(34, 70%, 13%, 1);
 
-  .backHomeLink {
-
-  }
-
   .backHomeBtn {
-
     background-image: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
     height: 60px;
     color: HSLA(0, 0%, 25%, 1);

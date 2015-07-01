@@ -1,19 +1,26 @@
 
-$('.dropdown-menu li').click(function(){
+
+$('.dropdown-menu li').click(function() {
   $('.CurrencySymbol').html( );
 });
 
 
+// delete?
+// $(".input-label").val( function(index, val) {
+//     return  + val;
+// });
 
-$( ".input-label" ).val( function(index, val) {
-    return  + val ;
-});
-
-
-$(".amountInput").blur(function (){
+/*
+ * regex to parse the currency input corectly
+*/
+$(".amountInput").blur(function() {
   this.value =
-  parseFloat(this.value.replace(/,/g, "")).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
+    parseFloat(
+      this.value
+        .replace(/,/g, ""))
+        .toFixed(2)
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 });
 
 // yuck a global var called data
@@ -81,8 +88,6 @@ var data = [{
 
  });
 
-
-
 /*
  * Clear the Form out
 */
@@ -90,13 +95,3 @@ $('.clearFormButton').click(function(e) {
   e.preventDefault();
   $('.myForm')[0].reset();
 });
-
-
-//$('.nextPageLink').click(function(e) {
-  // send this commented out section to the middleware to handle
-  // e.preventDefault();
-  // $('.overlay1').addClass('overlay');
-  // $('.overlay1').add("<i class='fa fa-spinner'></i>");
-
-  // $.post('sendMoney.hbs', $('.myForm').serialize());
-//});
