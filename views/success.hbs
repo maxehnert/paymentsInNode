@@ -1,5 +1,9 @@
 <div class="successWrapper">
-  <div class="confirmation">You have sent {{currencySymbol}}{{amount}} {{currency}} to {{receiver}}{{email}} {{id}} {{req.params.id}}{{params.id}}!</div>
+  {{#each data}}
+  <div class="confirmation">
+    You have sent {{currencySymbol}}{{amount}} to {{email}}!
+  </div>
+  {{/each}}
   <br />
   <i class="fa fa-check fa-4x"></i>
 

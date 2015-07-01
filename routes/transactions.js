@@ -38,30 +38,4 @@ router.post('/', function(req, res, next) {
   res.redirect('success');
 });
 
-// /* GET /transactions/id */
-// router.get('/:id', function(req, res, next) {
-//   Transaction.findById(req.params.id, function (err, post) {
-//     if (err) return next(err);
-//     res.json(post);
-//   });
-// });
-//
-//
-// /* PUT /transactions/:id */
-// router.put('/:id', function(req, res, next) {
-//   Transaction.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
-//     if (err) return next(err);
-//     res.json(post);
-//   });
-// });
-//
-//
-// /* DELETE /transactions/:id */
-// router.delete('/:id', function(req, res, next) {
-//   Transaction.findByIdAndRemove(req.params.id, req.body, function (err, post) {
-//     if (err) return next(err);
-//     res.json(post);
-//   });
-// });
-
 module.exports = router;
