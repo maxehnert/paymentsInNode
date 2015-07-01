@@ -16,7 +16,7 @@ $(".amountInput").blur(function (){
 
 });
 
-
+// yuck a global var called data
 var data = [{
   "currency": "USD",
   "symbol" : "$"

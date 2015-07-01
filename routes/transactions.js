@@ -7,9 +7,6 @@ var Transaction = require('../models/transaction.js');
 /* GET /transactions listing. */
 router.get('/', function(req, res, next) {
 
-  // /*Render the view and HBS */
-  // res.render('transactions', {pageTitle: 'Transaction History'});
-
   Transaction.find(function (err, transactionsArray) {
     if(err){console.log(err)}
     else {
@@ -35,21 +32,6 @@ router.post('/', function(req, res) {
         res.redirect('success');
       }
     });
-
-  // /* POST form. */
-  // router.post('/', function(req, res) {
-  //
-  //   // The simply saves a new comment, which again is grabbed from the form via req.body.comment
-  //   new Comment({title : req.body.comment})
-  //   .save(function(err, comment) {
-  //     console.log(comment)
-  //     res.redirect('form');
-  //   });
-  // });
-
-  /* Mongoose middlewhere */
-  //next();
-
 });
 
 // /* GET /transactions/id */
