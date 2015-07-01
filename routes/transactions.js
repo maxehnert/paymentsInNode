@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* POST /transactions */
-router.post('/', function(req, res) {
+router.post('/', function(req, res, next) {
 
   var newTransaction = new Transaction(req.body)
 
@@ -29,9 +29,13 @@ router.post('/', function(req, res) {
       }
       else {
         console.log(newTransaction);
-        res.redirect('success');
+        //res.redirect('success');
+
       }
     });
+    next();
+}, function (req, res) {
+  res.redirect('success');
 });
 
 // /* GET /transactions/id */

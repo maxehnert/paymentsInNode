@@ -89,9 +89,26 @@ var data = [{
  });
 
 /*
- * Clear the Form out
+ * Clear the Form field
 */
 $('.clearFormButton').click(function(e) {
   e.preventDefault();
   $('.myForm')[0].reset();
 });
+
+
+/*
+ * Watch the email input for a valid response
+ * If valid then show the check mark when it loses focus
+*/
+$('.emailInput').change(
+  function(e){
+    e.preventDefault();
+
+    if( $('.emailInput')[0].checkValidity() ) {
+      $('.emailGlyphicon').show();
+    }
+    else {
+      $('.emailGlyphicon').hide();
+    }
+    });
