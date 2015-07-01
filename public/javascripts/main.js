@@ -111,4 +111,27 @@ $('.emailInput').change(
     else {
       $('.emailGlyphicon').hide();
     }
-    });
+  }
+);
+
+$('#paymentOption1').change(
+  function(e) {
+    e.preventDefault();
+
+    if( $('#paymentOption1:checked').length === 1) {
+      $('.paymentOption1Icon').show();
+      $('.paymentOption2Icon').hide();
+    }
+  }
+);
+
+$('#paymentOption2').change(
+  function(e) {
+    e.preventDefault();
+
+    if( $('#paymentOption2:checked').length === 1) {
+      $('.paymentOption2Icon').show();
+      $('.paymentOption1Icon').hide();
+    }
+  }
+);

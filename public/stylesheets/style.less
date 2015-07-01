@@ -18,6 +18,13 @@ button {
   color: HSLA(0, 0%, 25%, 1);
 }
 
+/*
+ * Force Chrome to change background-color for input values
+*/
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px HSLA(48, 33%, 97%, 1) inset;
+}
+
 .mainContainer {
   background-image: radial-gradient(HSLA(30, 59%, 17%, 1), HSLA(32, 60%, 19%, 1));
   border: 2px solid black;
@@ -121,13 +128,11 @@ button {
   }
 }
 .emailInput {
-  background-color: transparent;
+  background-color: HSLA(48, 33%, 97%, 1) !important;
   border: none;
   outline: none;
   width: 50%;
 }
-
-
 
 .amountInput {
   background-color: transparent;
@@ -180,10 +185,10 @@ button {
   margin: 4%;
 
   .paymentType {
-    margin: 0;
+    width: 100%;
   }
 
-  .sendingMoneyChoice,
+  /* .sendingMoneyChoice,
   .payingForGoodsChoice {
     background-color: transparent;
     border: none;
@@ -195,8 +200,9 @@ button {
   .sendingMoneyChoice {
     border-bottom: 2px solid black;
     border-bottom-left-radius: 0;
-  }
-  .sendingMoneyChoiceGlyphicon,
+  } */
+
+  /* .sendingMoneyChoiceGlyphicon,
   .payingForGoodsChoiceGlyphicon {
     background-color: transparent;
     border: none;
@@ -205,6 +211,16 @@ button {
     border-bottom: 2px solid black;
     border-bottom-right-radius: 0;
 
+  } */
+  .sendingMoneyChoice,
+  .payingForGoodsChoice {
+    text-align: left;
+  }
+
+  .paymentOption1Icon,
+  .paymentOption2Icon {
+    display: none;
+    color: yellow;
   }
 }
 
