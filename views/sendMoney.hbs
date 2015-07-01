@@ -42,44 +42,14 @@
 
   <label for="selection" class="sendPayChoiceLabel">What's this payment for?</label>
   <div class="paymentChoiceWrapper">
-    <!-- <div class="list-group paymentType"> -->
-  <!--     <div class="input-group">
-    <input type="text"
-           class="form-control sendingMoneyChoice btn disabled"
-           aria-describedby="basic-addon12"
-           name="service"
-           value="I'm sending money to friends or family">
-    <span class="glyphicon glyphicon-ok sendingMoneyChoiceGlyphicon input-group-addon"
-          id="basic-addon12"
-          aria-hidden="true">
-    </span>
-
-
-    </div> -->
-
-        <div class="btn-group-vertical paymentType" data-toggle="buttons">
-
-          <label class="btn sendingMoneyChoice">
-            <input type="radio" name="service" id="paymentOption1" autocomplete="off"> I'm sending money to friends or family <i class="fa fa-check fa-2x pull-right paymentOption1Icon"></i>
-          </label>
-
-          <label class="btn payingForGoodsChoice">
-            <input type="radio" name="service" id="paymentOption2" autocomplete="off"> I'm paying for goods or services <i class="fa fa-check fa-2x pull-right paymentOption2Icon"></i>
-          </label>
-
-        </div>
-
-<!--         <div class="input-group">
-  <input type="button"
-         class="form-control payingForGoodsChoice"
-         aria-describedby="basic-addon13"
-         value="I'm paying for goods or services">
-  <span class="glyphicon glyphicon-ok payingForGoodsChoiceGlyphicon input-group-addon"
-        id="basic-addon13"
-        aria-hidden="true">
-  </span>
-</div> -->
-    <!-- </div> -->
+    <div class="btn-group-vertical paymentType" data-toggle="buttons">
+      <label class="btn sendingMoneyChoice">
+        <input type="radio" name="service" id="paymentOption1" autocomplete="off" value="sendMoney"> I'm sending money to friends or family <i class="fa fa-check fa-2x pull-right paymentOption1Icon"></i>
+      </label>
+      <label class="btn payingForGoodsChoice">
+        <input type="radio" name="service" id="paymentOption2" autocomplete="off" value="payGoods"> I'm paying for goods or services <i class="fa fa-check fa-2x pull-right paymentOption2Icon"></i>
+      </label>
+    </div>
   </div>
   <div class="buttonWrapper ">
     <a href="#" class="clearFormLink">

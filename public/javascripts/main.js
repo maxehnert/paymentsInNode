@@ -114,13 +114,18 @@ $('.emailInput').change(
   }
 );
 
+/*
+ * Watch the payment type and toggle the icons and
+ * If valid then show the check mark when it loses focus
+*/
 $('#paymentOption1').change(
   function(e) {
     e.preventDefault();
 
     if( $('#paymentOption1:checked').length === 1) {
-      $('.paymentOption1Icon').show();
       $('.paymentOption2Icon').hide();
+      $('.paymentOption1Icon').show();
+      // $('.sendingMoneyChoice').addClass('paymentOptionActive1');
     }
   }
 );
@@ -130,8 +135,23 @@ $('#paymentOption2').change(
     e.preventDefault();
 
     if( $('#paymentOption2:checked').length === 1) {
-      $('.paymentOption2Icon').show();
       $('.paymentOption1Icon').hide();
+      $('.paymentOption2Icon').show();
     }
   }
 );
+
+/*
+ * Watch the payment type focus and toggle the font color
+ *
+ * This is a bit redundant so may come back to fix later based on
+ * my todo list for the project
+*/
+$('.sendingMoneyChoice').click(function(){
+  $('.payingForGoodsChoice').removeClass('paymentOptionActive');
+  $('.sendingMoneyChoice').addClass('paymentOptionActive');
+});
+$('.payingForGoodsChoice').click(function(){
+  $('.sendingMoneyChoice').removeClass('paymentOptionActive');
+  $('.payingForGoodsChoice').addClass('paymentOptionActive');
+})

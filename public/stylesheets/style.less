@@ -170,7 +170,9 @@ input:-webkit-autofill {
   }
 }
 
-// payment choice buttons
+/*
+ * Payment Choice Buttons
+*/
 
 .sendPayChoiceLabel {
   padding-left: 4%;
@@ -188,39 +190,29 @@ input:-webkit-autofill {
     width: 100%;
   }
 
-  /* .sendingMoneyChoice,
-  .payingForGoodsChoice {
-    background-color: transparent;
-    border: none;
-    font-size: 1.2em;
-    font-weight: 400;
-    text-align: left;
-    height: 60px;
-  }
-  .sendingMoneyChoice {
-    border-bottom: 2px solid black;
-    border-bottom-left-radius: 0;
-  } */
-
-  /* .sendingMoneyChoiceGlyphicon,
-  .payingForGoodsChoiceGlyphicon {
-    background-color: transparent;
-    border: none;
-  }
-  .sendingMoneyChoiceGlyphicon {
-    border-bottom: 2px solid black;
-    border-bottom-right-radius: 0;
-
-  } */
   .sendingMoneyChoice,
   .payingForGoodsChoice {
     text-align: left;
+    font-size: 1.2em;
+    height: 60px;
+  }
+
+  .sendingMoneyChoice {
+    border-bottom: 2px solid black;
+  }
+
+  .paymentOptionActive {
+    color: HSLA(28, 56%, 58%, 1);
+  }
+  
+  .paymentOptionActive:hover {
+    color: HSLA(28, 56%, 58%, 1);
   }
 
   .paymentOption1Icon,
   .paymentOption2Icon {
     display: none;
-    color: yellow;
+    color: HSLA(28, 56%, 58%, 1);
   }
 }
 
