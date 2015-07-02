@@ -1,6 +1,5 @@
-<form action="/send" method="post" class ="myForm">
-
-  <div class="form-group">
+<form action="/send" method="post" class ="sendForm">
+  <div class="form-group"> <!-- Email Input Section-->
     <div class="wrapper">
       <span class="inputEmailPrepend">To:</span>
       <input type="email"
@@ -10,16 +9,14 @@
       <!-- <span class="glyphicon glyphicon-ok-sign emailGlyphicon" aria-hidden="true"></span> -->
       <i class="fa fa-check-circle fa-2x emailGlyphicon"></i>
     </div>
-  </div>
-
-  <div class="form-group">
+  </div> <!-- END Email Input Section-->
+  <div class="form-group"> <!-- Currency Input Section-->
     <div class="wrapper">
       <span class="inputAmountPrepend">Amount:</span>
         <!-- <span class="CurrencySymbol"> -->
       <input type="text"  class="amountInput" name="amount" placeholder="enter amount">
 
-      <!-- Single button -->
-      <div class="btn-group currencyBtnGroup">
+      <div class="btn-group currencyBtnGroup"> <!-- Currency Type Selection-->
         <button type="button"
                 class="btn btn-default dropdown-toggle currencyBtn"
                 data-toggle="dropdown"
@@ -34,13 +31,12 @@
         </ul>
       </div>
     </div>
-  </div>
-  <div class="wrapper">
+  </div> <!-- End Currency Input Section-->
+  <div class="wrapper"> <!-- Message Input Section-->
     <label for="message" class="messageInputLabel">Message (optional): </label>
     <textarea class="form-control messageInput" name="message" rows="3"></textarea>
-  </div>
-
-  <label for="selection" class="sendPayChoiceLabel">What's this payment for?</label>
+  </div> <!-- END Message Input Section-->
+  <label for="selection" class="sendPayChoiceLabel">What's this payment for?</label> <!-- Payment Type Section-->
   <div class="paymentChoiceWrapper">
     <div class="btn-group-vertical paymentType" data-toggle="buttons">
       <label class="btn sendingMoneyChoice">
@@ -50,13 +46,13 @@
         <input type="radio" name="service" id="paymentOption2" autocomplete="off" value="payGoods"> I'm paying for goods or services <i class="fa fa-check fa-2x pull-right paymentOption2Icon"></i>
       </label>
     </div>
-  </div>
-  <div class="buttonWrapper ">
+  </div> <!-- END Payment Type Section-->
+  <div class="buttonWrapper "> <!-- Footer Buttons Section-->
     <a href="#" class="clearFormLink">
       <button class="btn btn-group clearFormButton">Clear</button>
     </a>
     <a href="success" class="nextPageLink">
       <button class="btn btn-group nextPageButton" type="submit">Next</button>
     </a>
-  </div>
+  </div> <!-- END Footer Buttons Section-->
 </form>

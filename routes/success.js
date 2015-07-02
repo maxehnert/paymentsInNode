@@ -14,7 +14,6 @@ router.get('/', function(req, res) {
      res.render('success', { pageTitle: 'Send Money', data: data});
     }
   }).sort({"updated_at": -1}).limit(1);
-
 });
 
 module.exports = router;

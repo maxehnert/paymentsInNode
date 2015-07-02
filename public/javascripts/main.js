@@ -93,7 +93,8 @@ var data = [{
 */
 $('.clearFormButton').click(function(e) {
   e.preventDefault();
-  $('.myForm')[0].reset();
+  $('.sendForm')[0].reset();
+  $('.payingForGoodsChoice input[type=radio]').prop('checked', false);
 });
 
 

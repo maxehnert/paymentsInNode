@@ -8,29 +8,27 @@ var Transaction = require('../models/transaction.js');
 router.get('/', function(req, res, next) {
 
   Transaction.find(function (err, transactionsArray) {
-    if(err){console.log(err)}
+    if(err) {
+      console.log(err);
+    }
     else {
       res.render('transactions', { pageTitle: 'Transaction History', transactions: transactionsArray});
     }
     // res.json(transactions);
-  });
-
-
+  }).sort({"updated_at": -1});
 });
 
 /* POST /transactions */
 router.post('/', function(req, res, next) {
 
-  var newTransaction = new Transaction(req.body)
-
-    .save(function(err, body ) {
+  var newTransaction = new Transaction(req.body).save(
+    function(err, body ) {
       if(err) {
         console.log(err);
       }
       else {
         console.log(newTransaction);
         //res.redirect('success');
-
       }
     });
     next();
