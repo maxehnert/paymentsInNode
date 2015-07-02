@@ -97,6 +97,14 @@ $('.clearFormButton').click(function(e) {
   $('.payingForGoodsChoice input[type=radio]').prop('checked', false);
 });
 
+/*
+ * Flash a Load Screen After POSTing
+*/
+$('.nextPageLink').click(function() {
+  $('.overlay').addClass('overlayFlash');
+  $('.overlay i').addClass('fa fa-spinner fa-pulse fa-5x');
+});
+
 
 /*
  * Watch the email input for a valid response
