@@ -1,12 +1,57 @@
-/* Notes for improvement
-- add variables for font-size 1.2 and 1.5em
-- nest classes to avoid needing !important because of bootstrap
-- colors are all over the place, use 1 style only HSLA
-- create variable for colors also
-- probably use a mixin for font-size, weight-color
-- width variables;
-- background-color variable;
+/*
+ *
+ * NOTE: The Use of !important is because of bootstrap
+ *       overriding local css selectors.
+ *
 */
+
+/*
+ * less variables
+*/
+
+/* COLORS */
+
+ // Header and Footer Background
+@brown: radial-gradient(HSLA(30, 59%, 17%, 1), HSLA(32, 60%, 19%, 1));
+ // Main Section Background
+@tan: HSLA(26, 40%, 92%, 1);
+ // Input Field Background
+@light-tan: HSLA(48, 33%, 97%, 1);
+ // Button Color
+@gray-btn: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
+ // Choice Btns
+@choice-btn: linear-gradient(HSLA(0, 0%, 100%, 1), HSLA(0, 0%, 73%, 1));
+ // Button Font Color
+@black-btn-font: HSLA(0, 0%, 25%, 1);
+ // White
+@white: HSLA(0, 0%, 100%, 1);
+ // Payment Choice Active Orange
+@payment-orange: HSLA(28, 56%, 58%, 1);
+
+/* FONTS */
+@font-size-1: 1.2em;
+@font-size-2: 1.5em;
+@font-weight-400: 400;
+@font-weight-500: 500;
+@align-center: center;
+
+/* BORDER*/
+@2px-black: 2px solid black;
+
+@no-outline: none;
+
+/* MIXINS */
+
+// Buttons
+.btnMixin {
+  background-image: @gray-btn;
+  color: @black-btn-font;
+  font-size: @font-size-2;
+  font-weight: @font-weight-400;
+  height: 60px;
+  outline: @no-outline;
+}
+
 
 body {
   padding: 50px;
@@ -14,38 +59,42 @@ body {
   text-decoration: none;
 }
 
-button {
-  color: HSLA(0, 0%, 25%, 1);
+// set universal button states
+button:focus {
+  outline: 0;
+  }
+button:hover, button:active {
+  opacity: 0.7;
 }
+
 
 /*
  * Force Chrome to change background-color for input values
 */
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px HSLA(48, 33%, 97%, 1) inset;
+    -webkit-box-shadow: 0 0 0px 1000px @light-tan inset;
 }
 
 .mainContainer {
-  background-image: radial-gradient(HSLA(30, 59%, 17%, 1), HSLA(32, 60%, 19%, 1));
-  border: 2px solid black;
+  background-image: @brown;
+  border: @2px-black;
   padding-left: 0px !important;
   padding-right: 0px !important;
   postion: relative;
 }
 
 .content {
-  background-color: HSLA(26, 40%, 92%, 1);
+  background-color: @tan;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 1%;
   width: 100%;
 }
 
 .pageTitle {
-  color: white;
+  color: @white;
   font-size: 1.75em;
   margin: 4%;
-  text-align: center;
+  text-align: @align-center;
 }
 
 .pageFooter {
@@ -55,21 +104,32 @@ input:-webkit-autofill {
 /* START Initial Page*/
 .sendMoneyBtn,
 .viewTransactBtn {
-  background-image: linear-gradient(#f5f5f5, #bababa);
+  background-image: @choice-btn;
   border-radius: 6px;
   border: transparent;
+  box-shadow: 0 7px 6px -4px HSLA(60, 0%, 55%, 1);
+  color: @black-btn-font;
   height: 125px;
-  text-align: center;
+  text-align: @align-center;
   width: 87%;
 
   .sendMoneyTitle,
   .viewTransactTitle {
     margin-top: auto;
     margin-bottom: auto;
-    font-size: 1.5em;
-    font-weight: bold;
+    font-size: @font-size-2;
+    font-weight: @font-weight-500;
   }
 }
+
+// active states
+.sendMoneyBtn:hover,
+.viewTransactBtn:hover,
+.sendMoneyBtn:active,
+.viewTransactBtn:active{
+  background-image: linear-gradient(HSLA(0, 0%, 86%, 1), HSLA(0, 0%, 70%, 1));
+}
+
 .sendMoneyBtn {
   margin: 21% 6%;
 }
@@ -78,12 +138,15 @@ input:-webkit-autofill {
 }
 .homeFooter {
   margin-bottom: 15%;
-  background-color: HSLA(34, 70%, 13%, 1);
+  background-color: @brown;
 }
 
 /* END Initial Page*/
 
 /* START Send Money Page*/
+.sendForm {
+  padding-top: 1%;
+}
 
 .input-container {
    position: relative;
@@ -108,57 +171,56 @@ input:-webkit-autofill {
 .inputEmailPrepend,
 .inputAmountPrepend,
 .messageInputLabel {
-  font-size: 1.2em;
+  font-size: @font-size-1;
   margin-left: 8px;
-  font-weight: 400;
+  font-weight: @font-weight-400;
 }
 
 .wrapper {
-  background-color: HSLA(48, 33%, 97%, 1);
-  border: 2px solid black;
-  border-radius: 10px;
+  background-color: @light-tan;
+  border: @2px-black;
+  border-radius: 15px;
   margin: 4%;
   padding: 2%;
 
+  .messageInput {
+    border: none;
+    background-color: transparent;
+    outline: @no-outline;
+    resize: none;
+    box-shadow: none;
+  }
+
   .emailGlyphicon {
     float: right;
-    color: green ;
+    color: HSLA(120, 100%, 25%, 1);
     display: none;
   }
-}
-.emailInput {
-  background-color: HSLA(48, 33%, 97%, 1) !important;
-  border: none;
-  outline: none;
-  width: 50%;
+
+  .emailInput {
+    background-color: @light-tan;
+    border: none;
+    outline: @no-outline;
+    width: 50%;
+  }
 }
 
 .amountInput {
   background-color: transparent;
   border: none;
   width: 50%;
-  outline: none;
+  outline: @no-outline;
 }
 
 .currencyBtnGroup {
   float: right;
   margin-top: -6px;
-}
 
-.currencyBtn {
-  border: 2px solid black;
-}
-
-.messageInput {
-  border: none !important;
-  background-color: transparent !important;
-  outline: none;
-  resize: none;
-  box-shadow: none !important;
-
-}
-.messageInputLabel {
-  font-weight: 400;
+  .currencyBtn {
+    background-color: HSLA(0, 0%, 93%, 1);
+    border: @2px-black;
+    border-radius: 6px;
+  }
 }
 
 .dropdown-menu {
@@ -175,14 +237,14 @@ input:-webkit-autofill {
 
 .sendPayChoiceLabel {
   padding-left: 4%;
-  font-size: 1.2em;
-  font-weight: 400;
+  font-size: @font-size-1;
+  font-weight: @font-weight-400;
 }
 
 .paymentChoiceWrapper {
-  background-color: HSLA(48, 33%, 97%, 1);
-  border: 2px solid black;
-  border-radius: 10px;
+  background-color: @light-tan;
+  border: @2px-black;
+  border-radius: 15px;
   margin: 4%;
 
   .paymentType {
@@ -192,26 +254,26 @@ input:-webkit-autofill {
   .sendingMoneyChoice,
   .payingForGoodsChoice {
     text-align: left;
-    font-size: 1.2em;
+    font-size: @font-size-1;
     height: 60px;
   }
 
   .sendingMoneyChoice {
-    border-bottom: 2px solid black;
+    border-bottom: @2px-black;
   }
 
   .paymentOptionActive {
-    color: HSLA(28, 56%, 58%, 1);
+    color: @payment-orange;
   }
 
   .paymentOptionActive:hover {
-    color: HSLA(28, 56%, 58%, 1);
+    color: @payment-orange;
   }
 
   .paymentOption1Icon,
   .paymentOption2Icon {
     display: none;
-    color: HSLA(28, 56%, 58%, 1);
+    color: @payment-orange;
   }
 }
 
@@ -220,7 +282,7 @@ input:-webkit-autofill {
 
 .buttonWrapper {
   width: 100%;
-  background-image: radial-gradient(HSLA(30, 59%, 17%, 1), HSLA(32, 60%, 19%, 1));
+  background-image: @brown;
   padding-top: 3%;
   padding-bottom: 13%;
   margin-top: 10%;
@@ -238,12 +300,7 @@ input:-webkit-autofill {
   .nextPageButton,
   .clearFormButton {
     width: 200px;
-    background-image: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
-    height: 60px;
-    color: HSLA(0, 0%, 25%, 1);
-    font-size: 1.5em;
-    font-weight: 400;
-    outline: none;
+    .btnMixin;
   }
 }
 
@@ -260,7 +317,7 @@ input:-webkit-autofill {
 
   // Spinner element
   i {
-    color: white;
+    color: @white;
     margin: 43%;
   }
 }
@@ -272,9 +329,9 @@ input:-webkit-autofill {
   margin-bottom: 20%;
 }
 .confirmation {
-  text-align: center;
-  font-size: 1.5em;
-  font-weight: 400;
+  text-align: @align-center;
+  font-size: @font-size-2;
+  font-weight: @font-weight-400;
 }
 
 .fa-check {
@@ -296,12 +353,7 @@ input:-webkit-autofill {
 
   .sendMoreMoneyBtn,
   .transactionHistoryBtn {
-    background-image: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
-    height: 60px;
-    color: HSLA(0, 0%, 25%, 1);
-    font-size: 1.5em;
-    font-weight: 500;
-    outline: none;
+    .btnMixin;
   }
 }
 /* End Money Sent Confirmation Page*/
@@ -311,23 +363,30 @@ input:-webkit-autofill {
   margin-bottom: 0 !important;
 }
 
-.list-group-item {
+/* .list-group-item {
   background-color:HSLA(28, 46%, 85%, 1) !important;
   border: none !important;
-  font-size: 1.5em;
-  font-weight: 400;
-}
+  font-size: @font-size-2;
+  font-weight: @font-weight-400;
+} */
 
 .list-group-item-container {
   height: 500px;
   overflow: scroll;
+
+  .list-group-item {
+    background-color:HSLA(28, 46%, 85%, 1);
+    border: none;
+    font-size: @font-size-2;
+    font-weight: @font-weight-400;
+  }
 
   .transactionsDateString {
     text-align: left;
   }
 
   .transactionsEmail {
-    text-align: center;
+    text-align: @align-center;
   }
 
   .transactionsCurrency {
@@ -338,15 +397,10 @@ input:-webkit-autofill {
 .transactionBtnWrapper {
   padding-top: 3%;
   padding-bottom: 3%;
-  background-color: HSLA(34, 70%, 13%, 1);
+  background-image: @brown;
 
   .backHomeBtn {
-    background-image: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
-    height: 60px;
-    color: HSLA(0, 0%, 25%, 1);
-    font-size: 1.5em;
-    font-weight: 500;
-    outline: none;
+    .btnMixin;
     width: 93%;
     margin-left: 3%;
   }

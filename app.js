@@ -40,6 +40,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+// brought in local bootstrap and jquery so I can work offline
+app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', routes);
 app.use('/send', sendMoney);
