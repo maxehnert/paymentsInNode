@@ -28,12 +28,12 @@ router.post('/', function(req, res, next) {
       }
       else {
         console.log(newTransaction);
-        //res.redirect('success');
+        res.redirect('success');
       }
     });
-    next();
-}, function (req, res) {
-  res.redirect('success');
+//     next();
+// }, function (req, res) {
+//   res.redirect('success');
 });
 
 module.exports = router;
