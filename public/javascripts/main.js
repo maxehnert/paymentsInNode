@@ -48,53 +48,58 @@ var data = [{
 // TEMPORARY FIX TO KEEP MOVING THINGS ALONG
 // MUST FIX BEFORE SHIPPING
 
- $(".dropdown-menu li").click(function() {
+$(".dropdown-menu li").click(function() {
 
-   if(this.textContent == data[0].currency){
-     var $span = $("<span class='CurrencySymbol' > "+ data[0].symbol+"</span>");
-     var $input = $("<input type='text' class='hiddenCurrencySymbol' value="+ data[0].symbol+" style='display:none' name='currencySymbol'>");
+ if(this.textContent == data[0].currency){
+   var $span = $("<span class='CurrencySymbol' > "+ data[0].symbol+"</span>");
+   var $input = $("<input type='text' class='hiddenCurrencySymbol' value="+ data[0].symbol+" style='display:none' name='currencySymbol'>");
 
 
-     $('.CurrencySymbol').remove();
-     $('.currencyBtn').text(data[0].currency);
-     $('.inputAmountPrepend').append($span);
+   $('.CurrencySymbol').remove();
+   $('.currencyBtn').text(data[0].currency);
+   $('.inputAmountPrepend').append($span);
 
-     $('.hiddenCurrencySymbol').remove();
-     $('.currencyBtnGroup').append($input);
+   $('.hiddenCurrencySymbol').remove();
+   $('.currencyBtnGroup').append($input);
 
-   }
-   else if(this.textContent == data[1].currency){
-     var $span = $("<span class='CurrencySymbol' > "+ data[1].symbol+"</span>");
-     var $input = $("<input type='text' class='hiddenCurrencySymbol' value="+ data[1].symbol+" style='display:none' name='currencySymbol'>");
+ }
+ else if(this.textContent == data[1].currency){
+   var $span = $("<span class='CurrencySymbol' > "+ data[1].symbol+"</span>");
+   var $input = $("<input type='text' class='hiddenCurrencySymbol' value="+ data[1].symbol+" style='display:none' name='currencySymbol'>");
 
-     $('.CurrencySymbol').remove();
-     $('.currencyBtn').text(data[1].currency);
-     $('.inputAmountPrepend').append($span);
+   $('.CurrencySymbol').remove();
+   $('.currencyBtn').text(data[1].currency);
+   $('.inputAmountPrepend').append($span);
 
-     $('.hiddenCurrencySymbol').remove();
-     $('.currencyBtnGroup').append($input);
-   }
-   else if(this.textContent == data[2].currency){
-     var $span = $("<span class='CurrencySymbol' > "+ data[2].symbol+"</span>");
-     var $input = $("<input type='text' class='hiddenCurrencySymbol' value="+ data[2].symbol+" style='display:none' name='currencySymbol'>");
+   $('.hiddenCurrencySymbol').remove();
+   $('.currencyBtnGroup').append($input);
+ }
+ else if(this.textContent == data[2].currency){
+   var $span = $("<span class='CurrencySymbol' > "+ data[2].symbol+"</span>");
+   var $input = $("<input type='text' class='hiddenCurrencySymbol' value="+ data[2].symbol+" style='display:none' name='currencySymbol'>");
 
-     $('.CurrencySymbol').remove();
-     $('.currencyBtn').text(data[2].currency);
-     $('.inputAmountPrepend').append($span);
+   $('.CurrencySymbol').remove();
+   $('.currencyBtn').text(data[2].currency);
+   $('.inputAmountPrepend').append($span);
 
-     $('.hiddenCurrencySymbol').remove();
-     $('.currencyBtnGroup').append($input);
-   };
+   $('.hiddenCurrencySymbol').remove();
+   $('.currencyBtnGroup').append($input);
+ };
 
- });
+});
 
 /*
  * Clear the Form field
 */
 $('.clearFormButton').click(function(e) {
   e.preventDefault();
+
+  // Clears the form text inputs
   $('.sendForm')[0].reset();
-  $('.payingForGoodsChoice input[type=radio]').prop('checked', false);
+
+  // These two clear the radio active state
+  $('label').removeClass('paymentOptionActive active');
+  $('.fa-check').hide();
 });
 
 /*
