@@ -3,21 +3,21 @@
     {{! iterate over the list of transactions }}
     {{#each transactions}}
       <div class="list-group-item row">
-        <div class="transactionsDateString col-md-4">
+        <div class="list-group-item__transaction-date col-md-4">
           {{dateString}}
         </div>
-        <div class="transactionsEmail col-md-4">
+        <div class="list-group-item__transaction-email col-md-4">
           {{email}}
         </div>
-        <div class="transactionsCurrency col-md-4">
+        <div class="list-group-item__transaction-currency col-md-4">
           {{currencySymbol}}{{amount}}
         </div>
       </div>
     {{/each}}
   </div>
 </div>
-<div class="transactionBtnWrapper"> <!-- Footer Button Section-->
-  <a href="/" class="backHomeLink">
-    <button class="btn btn-group backHomeBtn">Back</button>
+<div class="transaction-btn-wrapper"> <!-- Footer Button Section-->
+  <a href="/" class="back-home-link">
+    <button class="btn btn-group back-home-btn">Back</button>
   </a>
 </div>

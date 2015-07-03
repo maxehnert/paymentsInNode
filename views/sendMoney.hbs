@@ -1,31 +1,30 @@
-<form action="/send" method="post" class ="sendForm">
+<form action="/send" method="post" class ="js-send-form send-form">
   <div class="form-group"> <!-- Email Input Section-->
     <div class="wrapper">
-      <span class="inputEmailPrepend">To:</span>
+      <span class="input-email-prepend">To:</span>
       <input type="email"
-             required class="emailInput"
+             required class="js-email-input email-input"
              name="email"
              placeholder="enter email address">
-      <!-- <span class="glyphicon glyphicon-ok-sign emailGlyphicon" aria-hidden="true"></span> -->
-      <i class="fa fa-check-circle fa-2x emailGlyphicon"></i>
+      <i class="fa fa-check-circle fa-2x js-email-valid-icon email-valid-icon"></i>
     </div>
   </div> <!-- END Email Input Section-->
   <div class="form-group"> <!-- Currency Input Section-->
     <div class="wrapper">
-      <span class="inputAmountPrepend">Amount:</span>
+      <span class="js-input-amount-prepend input-amount-prepend">Amount:</span>
         <!-- <span class="CurrencySymbol"> -->
-      <input type="text"  class="amountInput" name="amount" placeholder="enter amount">
+      <input type="text"  class="js-payment-amount-input payment-amount-input" name="amount" placeholder="enter amount">
 
-      <div class="btn-group currencyBtnGroup"> <!-- Currency Type Selection-->
+      <div class="btn-group js-currency-btn-group currency-btn-group"> <!-- Currency Type Selection-->
         <button type="button"
-                class="btn btn-default dropdown-toggle currencyBtn"
+                class="btn btn-default dropdown-toggle js-currency-btn currency-btn"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
                 name="service">
           USD <span class="caret"></span>
         </button>
-        <ul  class="dropdown-menu">
+        <ul class="dropdown-menu">
          <!-- Inserting from main.js
          <li name='currency'><a href='#'>"+val.currency+"</a></li> -->
         </ul>
@@ -33,26 +32,26 @@
     </div>
   </div> <!-- End Currency Input Section-->
   <div class="wrapper"> <!-- Message Input Section-->
-    <label for="message" class="messageInputLabel">Message (optional): </label>
-    <textarea class="form-control messageInput" name="message" rows="3"></textarea>
+    <label for="message" class="message-input-label">Message (optional): </label>
+    <textarea class="form-control message-input" name="message" rows="3"></textarea>
   </div> <!-- END Message Input Section-->
-  <label for="selection" class="sendPayChoiceLabel">What's this payment for?</label> <!-- Payment Type Section-->
-  <div class="paymentChoiceWrapper">
-    <div class="btn-group-vertical paymentType" data-toggle="buttons">
-      <label class="btn sendingMoneyChoice">
-        <input type="radio" name="service" id="paymentOption1" autocomplete="off" value="sendMoney"> I'm sending money to friends or family <i class="fa fa-check fa-2x pull-right paymentOption1Icon"></i>
+  <label for="selection" class="payment-choice-label">What's this payment for?</label> <!-- Payment Type Section-->
+  <div class="payment-choice-wrapper">
+    <div class="btn-group-vertical payment-choice-type-group" data-toggle="buttons">
+      <label class="btn js-payment-choice-type__send-btn payment-choice-type__send-btn">
+        <input type="radio" name="service" id="paymentOption1" autocomplete="off" value="send money"> I'm sending money to friends or family <i class="fa fa-check fa-2x pull-right js-payment-choice-type__send-icon payment-choice-type__send-icon"></i>
       </label>
-      <label class="btn payingForGoodsChoice">
-        <input type="radio" name="service" id="paymentOption2" autocomplete="off" value="payGoods"> I'm paying for goods or services <i class="fa fa-check fa-2x pull-right paymentOption2Icon"></i>
+      <label class="btn js-payment-choice-type__pay-btn payment-choice-type__pay-btn">
+        <input type="radio" name="service" id="paymentOption2" autocomplete="off" value="pay goods"> I'm paying for goods or services <i class="fa fa-check fa-2x pull-right js-payment-choice-type__pay-icon payment-choice-type__pay-icon"></i>
       </label>
     </div>
   </div> <!-- END Payment Type Section-->
-  <div class="buttonWrapper "> <!-- Footer Buttons Section-->
-    <a href="#" class="clearFormLink">
-      <button class="btn btn-group clearFormButton">Clear</button>
+  <div class="btn-group-footer"> <!-- Footer Buttons Section-->
+    <a href="#" class="clear-form-link">
+      <button class="btn btn-group js-clear-form-btn clear-form-btn">Clear</button>
     </a>
-    <a href="success" class="nextPageLink">
-      <button class="btn btn-group nextPageButton" type="submit">Next</button>
+    <a href="success" class="js-next-page-link next-page-link">
+      <button class="btn btn-group next-page-btn" type="submit">Next</button>
     </a>
   </div> <!-- END Footer Buttons Section-->
 </form>

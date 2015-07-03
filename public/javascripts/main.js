@@ -1,8 +1,6 @@
 
 
-$('.dropdown-menu li').click(function() {
-  $('.CurrencySymbol').html( );
-});
+
 
 
 // delete?
@@ -13,7 +11,7 @@ $('.dropdown-menu li').click(function() {
 /*
  * regex to parse the currency input corectly
 */
-$(".amountInput").blur(function() {
+$(".js-payment-amount-input").blur(function() {
   this.value =
     parseFloat(
       this.value
@@ -40,10 +38,12 @@ var data = [{
  $(".dropdown-menu").append($li);
 
  // var $span = $("<span>"+val.symbol+"</span>");
- // $('.inputAmountPrepend').append($span);
+ // $('.js-input-amount-prepend').append($span);
  });
 
-
+ $('.dropdown-menu li').click(function() {
+   $('.js-currency-symbol').html( );
+ });
 
 // TEMPORARY FIX TO KEEP MOVING THINGS ALONG
 // MUST FIX BEFORE SHIPPING
@@ -51,39 +51,39 @@ var data = [{
 $(".dropdown-menu li").click(function() {
 
  if(this.textContent == data[0].currency){
-   var $span = $("<span class='CurrencySymbol' > "+ data[0].symbol+"</span>");
-   var $input = $("<input type='text' class='hiddenCurrencySymbol' value="+ data[0].symbol+" style='display:none' name='currencySymbol'>");
+   var $span = $("<span class='js-currency-symbol' > "+ data[0].symbol+"</span>");
+   var $input = $("<input type='text' class='js-hidden-currency-symbol' value="+ data[0].symbol+" style='display:none' name='currencySymbol'>");
 
 
-   $('.CurrencySymbol').remove();
-   $('.currencyBtn').text(data[0].currency);
-   $('.inputAmountPrepend').append($span);
+   $('.js-currency-symbol').remove();
+   $('.js-currency-btn').text(data[0].currency);
+   $('.js-input-amount-prepend').append($span);
 
-   $('.hiddenCurrencySymbol').remove();
-   $('.currencyBtnGroup').append($input);
+   $('.js-hidden-currency-symbol').remove();
+   $('.js-currency-btn-group').append($input);
 
  }
  else if(this.textContent == data[1].currency){
-   var $span = $("<span class='CurrencySymbol' > "+ data[1].symbol+"</span>");
-   var $input = $("<input type='text' class='hiddenCurrencySymbol' value="+ data[1].symbol+" style='display:none' name='currencySymbol'>");
+   var $span = $("<span class='js-currency-symbol' > "+ data[1].symbol+"</span>");
+   var $input = $("<input type='text' class='js-hidden-currency-symbol' value="+ data[1].symbol+" style='display:none' name='currencySymbol'>");
 
-   $('.CurrencySymbol').remove();
-   $('.currencyBtn').text(data[1].currency);
-   $('.inputAmountPrepend').append($span);
+   $('.js-currency-symbol').remove();
+   $('.js-currency-btn').text(data[1].currency);
+   $('.js-input-amount-prepend').append($span);
 
-   $('.hiddenCurrencySymbol').remove();
-   $('.currencyBtnGroup').append($input);
+   $('.js-hidden-currency-symbol').remove();
+   $('.js-currency-btn-group').append($input);
  }
  else if(this.textContent == data[2].currency){
-   var $span = $("<span class='CurrencySymbol' > "+ data[2].symbol+"</span>");
-   var $input = $("<input type='text' class='hiddenCurrencySymbol' value="+ data[2].symbol+" style='display:none' name='currencySymbol'>");
+   var $span = $("<span class='js-currency-symbol' > "+ data[2].symbol+"</span>");
+   var $input = $("<input type='text' class='js-hidden-currency-symbol' value="+ data[2].symbol+" style='display:none' name='currencySymbol'>");
 
-   $('.CurrencySymbol').remove();
-   $('.currencyBtn').text(data[2].currency);
-   $('.inputAmountPrepend').append($span);
+   $('.js-currency-symbol').remove();
+   $('.js-currency-btn').text(data[2].currency);
+   $('.js-input-amount-prepend').append($span);
 
-   $('.hiddenCurrencySymbol').remove();
-   $('.currencyBtnGroup').append($input);
+   $('.js-hidden-currency-symbol').remove();
+   $('.js-currency-btn-group').append($input);
  };
 
 });
@@ -91,22 +91,22 @@ $(".dropdown-menu li").click(function() {
 /*
  * Clear the Form field
 */
-$('.clearFormButton').click(function(e) {
+$('.js-clear-form-btn').click(function(e) {
   e.preventDefault();
 
   // Clears the form text inputs
-  $('.sendForm')[0].reset();
+  $('.js-send-form')[0].reset();
 
   // These two clear the radio active state
-  $('label').removeClass('paymentOptionActive active');
+  $('label').removeClass('js-payment-option-active active');
   $('.fa-check').hide();
 });
 
 /*
  * Flash a Load Screen After POSTing
 */
-$('.nextPageLink').click(function() {
-  $('.overlay').addClass('overlayFlash');
+$('.js-next-page-link').click(function() {
+  $('.overlay').addClass('overlay__flash');
   $('.overlay i').addClass('fa fa-spinner fa-pulse fa-5x');
 });
 
@@ -115,15 +115,15 @@ $('.nextPageLink').click(function() {
  * Watch the email input for a valid response
  * If valid then show the check mark when it loses focus
 */
-$('.emailInput').change(
+$('.js-email-input').change(
   function(e){
     e.preventDefault();
 
-    if( $('.emailInput')[0].checkValidity() ) {
-      $('.emailGlyphicon').show();
+    if( $('.js-email-input')[0].checkValidity() ) {
+      $('.js-email-valid-icon').show();
     }
     else {
-      $('.emailGlyphicon').hide();
+      $('.js-email-valid-icon').hide();
     }
   }
 );
@@ -137,9 +137,9 @@ $('#paymentOption1').change(
     e.preventDefault();
 
     if( $('#paymentOption1:checked').length === 1) {
-      $('.paymentOption2Icon').hide();
-      $('.paymentOption1Icon').show();
-      // $('.sendingMoneyChoice').addClass('paymentOptionActive1');
+      $('.js-payment-choice-type__pay-icon').hide();
+      $('.js-payment-choice-type__send-icon').show();
+      // $('.js-payment-choice-type__send-btn').addClass('js-payment-option-active');
     }
   }
 );
@@ -149,8 +149,8 @@ $('#paymentOption2').change(
     e.preventDefault();
 
     if( $('#paymentOption2:checked').length === 1) {
-      $('.paymentOption1Icon').hide();
-      $('.paymentOption2Icon').show();
+      $('.js-payment-choice-type__send-icon').hide();
+      $('.js-payment-choice-type__pay-icon').show();
     }
   }
 );
@@ -161,11 +161,11 @@ $('#paymentOption2').change(
  * This is a bit redundant so may come back to fix later based on
  * my todo list for the project
 */
-$('.sendingMoneyChoice').click(function(){
-  $('.payingForGoodsChoice').removeClass('paymentOptionActive');
-  $('.sendingMoneyChoice').addClass('paymentOptionActive');
+$('.js-payment-choice-type__send-btn').click(function(){
+  $('.js-payment-choice-type__pay-btn').removeClass('js-payment-option-active');
+  $('.js-payment-choice-type__send-btn').addClass('js-payment-option-active');
 });
-$('.payingForGoodsChoice').click(function(){
-  $('.sendingMoneyChoice').removeClass('paymentOptionActive');
-  $('.payingForGoodsChoice').addClass('paymentOptionActive');
-})
+$('.js-payment-choice-type__pay-btn').click(function(){
+  $('.js-payment-choice-type__send-btn').removeClass('js-payment-option-active');
+  $('.js-payment-choice-type__pay-btn').addClass('js-payment-option-active');
+});

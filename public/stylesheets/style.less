@@ -1,15 +1,9 @@
-/*
- *
- * NOTE: The Use of !important is because of bootstrap
- *       overriding local css selectors.
- *
-*/
+// NOTE: The Use of !important is because of bootstrap overriding local css selectors. To avoid this I nested many selectors.
 
-/*
- * less variables
-*/
 
-/* COLORS */
+// less variables
+
+// COLORS
 
  // Header and Footer Background
 @brown: radial-gradient(HSLA(30, 59%, 17%, 1), HSLA(32, 60%, 19%, 1));
@@ -28,22 +22,22 @@
  // Payment Choice Active Orange
 @payment-orange: HSLA(28, 56%, 58%, 1);
 
-/* FONTS */
+// FONTS
 @font-size-1: 1.2em;
 @font-size-2: 1.5em;
 @font-weight-400: 400;
 @font-weight-500: 500;
 @align-center: center;
 
-/* BORDER*/
+// BORDER
 @2px-black: 2px solid black;
 
 @no-outline: none;
 
-/* MIXINS */
+// MIXINS
 
 // Buttons
-.btnMixin {
+.btn-mixin {
   background-image: @gray-btn;
   color: @black-btn-font;
   font-size: @font-size-2;
@@ -68,14 +62,13 @@ button:hover, button:active {
 }
 
 
-/*
- * Force Chrome to change background-color for input values
-*/
+// Force Chrome to change background-color for input values
+
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px @light-tan inset;
 }
 
-.mainContainer {
+.main-container {
   background-image: @brown;
   border: @2px-black;
   padding-left: 0px !important;
@@ -83,14 +76,14 @@ input:-webkit-autofill {
   postion: relative;
 }
 
-.content {
+.main-container__content {
   background-color: @tan;
   margin-right: auto;
   margin-left: auto;
   width: 100%;
 }
 
-.pageTitle {
+.page-title {
   color: @white;
   font-size: 1.75em;
   margin: 4%;
@@ -101,9 +94,9 @@ input:-webkit-autofill {
   margin: 15%;
 }
 
-/* START Initial Page*/
-.sendMoneyBtn,
-.viewTransactBtn {
+// START Initial Page
+.send-money-btn,
+.view-transaction-hist-btn {
   background-image: @choice-btn;
   border-radius: 6px;
   border: transparent;
@@ -113,8 +106,8 @@ input:-webkit-autofill {
   text-align: @align-center;
   width: 87%;
 
-  .sendMoneyTitle,
-  .viewTransactTitle {
+  .send-money-btn-title,
+  .view-transaction-hist-title {
     margin-top: auto;
     margin-bottom: auto;
     font-size: @font-size-2;
@@ -123,17 +116,17 @@ input:-webkit-autofill {
 }
 
 // active states
-.sendMoneyBtn:hover,
-.viewTransactBtn:hover,
-.sendMoneyBtn:active,
-.viewTransactBtn:active{
+.send-money-btn:hover,
+.view-transaction-hist-btn:hover,
+.send-money-btn:active,
+.view-transaction-hist-btn:active{
   background-image: linear-gradient(HSLA(0, 0%, 86%, 1), HSLA(0, 0%, 70%, 1));
 }
 
-.sendMoneyBtn {
+.send-money-btn {
   margin: 21% 6%;
 }
-.viewTransactBtn {
+.view-transaction-hist-btn {
   margin: 1% 6% 23%;
 }
 .homeFooter {
@@ -141,10 +134,10 @@ input:-webkit-autofill {
   background-color: @brown;
 }
 
-/* END Initial Page*/
+// END Initial Page
 
-/* START Send Money Page*/
-.sendForm {
+// START Send Money Page
+.send-form {
   padding-top: 1%;
 }
 
@@ -168,9 +161,9 @@ input:-webkit-autofill {
   text-indent: 50px;
 }
 
-.inputEmailPrepend,
-.inputAmountPrepend,
-.messageInputLabel {
+.input-email-prepend,
+.input-amount-prepend,
+.message-input-label {
   font-size: @font-size-1;
   margin-left: 8px;
   font-weight: @font-weight-400;
@@ -183,7 +176,7 @@ input:-webkit-autofill {
   margin: 4%;
   padding: 2%;
 
-  .messageInput {
+  .message-input {
     border: none;
     background-color: transparent;
     outline: @no-outline;
@@ -191,13 +184,13 @@ input:-webkit-autofill {
     box-shadow: none;
   }
 
-  .emailGlyphicon {
+  .email-valid-icon {
     float: right;
     color: HSLA(120, 100%, 25%, 1);
     display: none;
   }
 
-  .emailInput {
+  .email-input {
     background-color: @light-tan;
     border: none;
     outline: @no-outline;
@@ -205,18 +198,18 @@ input:-webkit-autofill {
   }
 }
 
-.amountInput {
+.payment-amount-input {
   background-color: transparent;
   border: none;
   width: 50%;
   outline: @no-outline;
 }
 
-.currencyBtnGroup {
+.currency-btn-group {
   float: right;
   margin-top: -6px;
 
-  .currencyBtn {
+  .currency-btn {
     background-color: HSLA(0, 0%, 93%, 1);
     border: @2px-black;
     border-radius: 6px;
@@ -231,81 +224,79 @@ input:-webkit-autofill {
   }
 }
 
-/*
- * Payment Choice Buttons
-*/
+// Payment Choice Buttons
 
-.sendPayChoiceLabel {
+.payment-choice-label {
   padding-left: 4%;
   font-size: @font-size-1;
   font-weight: @font-weight-400;
 }
 
-.paymentChoiceWrapper {
+.payment-choice-wrapper {
   background-color: @light-tan;
   border: @2px-black;
   border-radius: 15px;
   margin: 4%;
 
-  .paymentType {
+  .payment-choice-type-group {
     width: 100%;
   }
 
-  .sendingMoneyChoice,
-  .payingForGoodsChoice {
+  .payment-choice-type__send-btn,
+  .payment-choice-type__pay-btn {
     text-align: left;
     font-size: @font-size-1;
     height: 60px;
   }
 
-  .sendingMoneyChoice {
+  .payment-choice-type__send-btn {
     border-bottom: @2px-black;
   }
 
-  .paymentOptionActive {
+  .js-payment-option-active {
     color: @payment-orange;
   }
 
-  .paymentOptionActive:hover {
+  .js-payment-option-active:hover {
     color: @payment-orange;
   }
 
-  .paymentOption1Icon,
-  .paymentOption2Icon {
+  .payment-choice-type__send-icon,
+  .payment-choice-type__pay-icon {
     display: none;
     color: @payment-orange;
   }
 }
 
 
-/* Footer buttons */
+// Footer buttons
 
-.buttonWrapper {
+.btn-group-footer {
   width: 100%;
   background-image: @brown;
   padding-top: 3%;
   padding-bottom: 13%;
   margin-top: 10%;
 
-  .clearFormLink {
+  .clear-form-link {
     float: left;
     margin-left: 5%;
   }
 
-  .nextPageLink {
+  .next-page-link {
     float: right;
     margin-right: 5%;
   }
 
-  .nextPageButton,
-  .clearFormButton {
+  .next-page-btn,
+  .clear-form-btn {
     width: 200px;
-    .btnMixin;
+    .btn-mixin;
   }
 }
 
 // Black Image Flash Overlay
-.overlayFlash {
+.overlay__flash {
   background-color: HSLA(0, 0%, 0%, 0.7);
   opacity: 1;
   z-index: 9999;
@@ -321,10 +312,10 @@ input:-webkit-autofill {
     margin: 43%;
   }
 }
-/* END Send Money Page*/
+// END Send Money Page
 
-/* Money Sent Confirmation Page*/
-.successWrapper {
+// Money Sent Confirmation Page
+.success-wrapper {
   margin-top: 15%;
   margin-bottom: 20%;
 }
@@ -339,36 +330,29 @@ input:-webkit-autofill {
   margin-left: 43%;
 }
 
-.buttonWrapper {
+.btn-group-footer {
 
-  .sendMoreMoneyLink {
+  .send-more-money-link {
     float: left;
     margin-left: 5%;
   }
 
-  .transactionHistoryLink {
+  .transaction-history-link {
     float: right;
     margin-right: 5%;
   }
 
-  .sendMoreMoneyBtn,
-  .transactionHistoryBtn {
-    .btnMixin;
+  .send-more-money-btn,
+  .transaction-hostory-btn {
+    .btn-mixin;
   }
 }
-/* End Money Sent Confirmation Page*/
+// End Money Sent Confirmation Page
 
-/* Transaction History Page*/
+// Transaction History Page
 .list-group {
   margin-bottom: 0 !important;
 }
-
-/* .list-group-item {
-  background-color:HSLA(28, 46%, 85%, 1) !important;
-  border: none !important;
-  font-size: @font-size-2;
-  font-weight: @font-weight-400;
-} */
 
 .list-group-item-container {
   height: 500px;
@@ -381,28 +365,28 @@ input:-webkit-autofill {
     font-weight: @font-weight-400;
   }
 
-  .transactionsDateString {
+  .list-group-item__transaction-date {
     text-align: left;
   }
 
-  .transactionsEmail {
+  .list-group-item__transaction-email {
     text-align: @align-center;
   }
 
-  .transactionsCurrency {
+  .list-group-item__transaction-currency {
     text-align: right;
   }
 }
 
-.transactionBtnWrapper {
+.transaction-btn-wrapper {
   padding-top: 3%;
   padding-bottom: 3%;
   background-image: @brown;
 
-  .backHomeBtn {
-    .btnMixin;
+  .back-home-btn {
+    .btn-mixin;
     width: 93%;
     margin-left: 3%;
   }
 }
-/* END Transaction History Page*/
+// END Transaction History Page
