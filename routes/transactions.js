@@ -20,12 +20,11 @@ router.get('/', function(req, res, next) {
   //   });
 
 
-  Transaction.find(function (err, transactionsArray) {
+  Transaction.find( function(err, transactionsArray) {
     if(err) {
       console.log(err);
-    }
-    else {
-      res.render('transactions', { pageTitle: 'Transaction History', transactions: transactionsArray});
+    } else {
+      res.render('transactions', { pageTitle: 'Transaction History', transactions: transactionsArray });
     }
     // res.json(transactions);
   }).sort({"updated_at": -1});
@@ -38,8 +37,7 @@ router.post('/', function(req, res, next) {
     function(err, body ) {
       if(err) {
         console.log(err);
-      }
-      else {
+      } else {
         console.log(newTransaction);
         res.redirect('success');
       }

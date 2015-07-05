@@ -9,10 +9,9 @@ router.get('/', function(req, res) {
   Transaction.find(function (err, data) {
     if(err) {
       console.log(err);
+      } else {
+       res.render('success', { pageTitle: 'Send Money', data: data });
       }
-    else {
-     res.render('success', { pageTitle: 'Send Money', data: data});
-    }
   }).sort({"updated_at": -1}).limit(1);
 });
 

@@ -12,23 +12,18 @@
   <div class="form-group"> <!-- Currency Input Section-->
     <div class="wrapper">
       <span class="js-input-amount-prepend input-amount-prepend">Amount:</span>
-        <!-- <span class="CurrencySymbol"> -->
+      <!-- INSERT  <span class="js-currency-symbol"> -->
       <input type="text"  class="js-payment-amount-input payment-amount-input" name="amount" placeholder="enter amount">
-
-      <div class="btn-group js-currency-btn-group currency-btn-group"> <!-- Currency Type Selection-->
-        <button type="button"
-                class="btn btn-default dropdown-toggle js-currency-btn currency-btn"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                name="service">
-          USD <span class="caret"></span>
+      <div class="btn-group js-currency-btn-group currency-btn-group">
+        <button type="button" class="btn js-currency-btn currency-btn">Currency</button>
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu">
-         <!-- Inserting from main.js
-         <li name='currency'><a href='#'>"+val.currency+"</a></li> -->
         </ul>
       </div>
+      <!-- INSERT Hidden currency symbol input -->
     </div>
   </div> <!-- End Currency Input Section-->
   <div class="wrapper"> <!-- Message Input Section-->

@@ -7,18 +7,25 @@
 
  // Header and Footer Background
 @brown: radial-gradient(HSLA(30, 59%, 17%, 1), HSLA(32, 60%, 19%, 1));
+
  // Main Section Background
 @tan: HSLA(26, 40%, 92%, 1);
+
  // Input Field Background
 @light-tan: HSLA(48, 33%, 97%, 1);
+
  // Button Color
 @gray-btn: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
+
  // Choice Btns
 @choice-btn: linear-gradient(HSLA(0, 0%, 100%, 1), HSLA(0, 0%, 73%, 1));
+
  // Button Font Color
 @black-btn-font: HSLA(0, 0%, 25%, 1);
+
  // White
 @white: HSLA(0, 0%, 100%, 1);
+
  // Payment Choice Active Orange
 @payment-orange: HSLA(28, 56%, 58%, 1);
 
@@ -46,7 +53,6 @@
   outline: @no-outline;
 }
 
-
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -57,15 +63,14 @@ body {
 button:focus {
   outline: 0;
   }
+
 button:hover, button:active {
   opacity: 0.7;
 }
 
-
 // Force Chrome to change background-color for input values
-
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px @light-tan inset;
+  -webkit-box-shadow: 0 0 0px 1000px @light-tan inset;
 }
 
 .main-container {
@@ -108,10 +113,10 @@ input:-webkit-autofill {
 
   .send-money-btn-title,
   .view-transaction-hist-title {
-    margin-top: auto;
-    margin-bottom: auto;
     font-size: @font-size-2;
     font-weight: @font-weight-500;
+    margin-bottom: auto;
+    margin-top: auto;
   }
 }
 
@@ -126,35 +131,20 @@ input:-webkit-autofill {
 .send-money-btn {
   margin: 21% 6%;
 }
+
 .view-transaction-hist-btn {
   margin: 1% 6% 23%;
 }
-.homeFooter {
-  margin-bottom: 15%;
-  background-color: @brown;
-}
 
+.homeFooter {
+  background-color: @brown;
+  margin-bottom: 15%;
+}
 // END Initial Page
 
 // START Send Money Page
 .send-form {
   padding-top: 1%;
-}
-
-.input-container {
-   position: relative;
-}
-
-.input-container input {
-  width: 100%;
-}
-
-.input-container
-.input-label {
-  padding-left: 5px;
-  position: absolute;
-  top: 7px;
-  width: 45px;
 }
 
 .amount-input {
@@ -165,8 +155,8 @@ input:-webkit-autofill {
 .input-amount-prepend,
 .message-input-label {
   font-size: @font-size-1;
-  margin-left: 8px;
   font-weight: @font-weight-400;
+  margin-left: 8px;
 }
 
 .wrapper {
@@ -177,17 +167,17 @@ input:-webkit-autofill {
   padding: 2%;
 
   .message-input {
-    border: none;
     background-color: transparent;
+    border: none;
+    box-shadow: none;
     outline: @no-outline;
     resize: none;
-    box-shadow: none;
   }
 
   .email-valid-icon {
-    float: right;
     color: HSLA(120, 100%, 25%, 1);
     display: none;
+    float: right;
   }
 
   .email-input {
@@ -201,18 +191,27 @@ input:-webkit-autofill {
 .payment-amount-input {
   background-color: transparent;
   border: none;
-  width: 50%;
   outline: @no-outline;
+  width: 50%;
 }
 
 .currency-btn-group {
   float: right;
   margin-top: -6px;
 
-  .currency-btn {
+  .currency-btn, .dropdown-toggle {
     background-color: HSLA(0, 0%, 93%, 1);
     border: @2px-black;
     border-radius: 6px;
+  }
+
+  .currency-btn {
+    border-right: none;
+    padding-right: 5px;
+  }
+  .dropdown-toggle {
+    border-left: none;
+    padding-left: 5px;
   }
 }
 
@@ -227,9 +226,9 @@ input:-webkit-autofill {
 // Payment Choice Buttons
 
 .payment-choice-label {
-  padding-left: 4%;
   font-size: @font-size-1;
   font-weight: @font-weight-400;
+  padding-left: 4%;
 }
 
 .payment-choice-wrapper {
@@ -244,20 +243,16 @@ input:-webkit-autofill {
 
   .payment-choice-type__send-btn,
   .payment-choice-type__pay-btn {
-    text-align: left;
     font-size: @font-size-1;
     height: 60px;
+    text-align: left;
   }
 
   .payment-choice-type__send-btn {
     border-bottom: @2px-black;
   }
 
-  .js-payment-option-active {
-    color: @payment-orange;
-  }
-
-  .js-payment-option-active:hover {
+  .js-payment-option-active, .js-payment-option-active:hover {
     color: @payment-orange;
   }
 
@@ -268,15 +263,14 @@ input:-webkit-autofill {
   }
 }
 
-
 // Footer buttons
 
 .btn-group-footer {
-  width: 100%;
   background-image: @brown;
-  padding-top: 3%;
-  padding-bottom: 15%;
   margin-top: 10%;
+  padding-bottom: 15%;
+  padding-top: 3%;
+  width: 100%;
 
   .clear-form-link {
     float: left;
@@ -298,13 +292,13 @@ input:-webkit-autofill {
 // Black Image Flash Overlay
 .overlay__flash {
   background-color: HSLA(0, 0%, 0%, 0.7);
+  height: 100%;
+  left: 0;
   opacity: 1;
-  z-index: 9999;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  z-index: 9999;
 
   // Spinner element
   i {
@@ -321,8 +315,8 @@ input:-webkit-autofill {
 .confirmation {
   font-size: @font-size-2;
   font-weight: @font-weight-400;
-  text-align: @align-center;
   padding-top: 10%;
+  text-align: @align-center;
 }
 
 .fa-check {
@@ -379,14 +373,14 @@ input:-webkit-autofill {
 }
 
 .transaction-btn-wrapper {
-  padding-top: 3%;
-  padding-bottom: 3%;
   background-image: @brown;
+  padding-bottom: 3%;
+  padding-top: 3%;
 
   .back-home-btn {
     .btn-mixin;
-    width: 93%;
     margin-left: 3%;
+    width: 93%;
   }
 }
 // END Transaction History Page
