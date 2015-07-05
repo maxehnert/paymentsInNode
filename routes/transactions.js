@@ -7,7 +7,7 @@ var Transaction = require('../models/transaction.js');
 /* GET /transactions listing. */
 router.get('/', function(req, res, next) {
 
-  // Working on trying to implement a true infinite scroll
+  //Working on trying to implement a true infinite scroll
 
   // var lastSeen = null;
   //
@@ -16,7 +16,8 @@ router.get('/', function(req, res, next) {
   //   .limit(5)
   //   .exec(function(err, transactionsArray) {
   //       lastSeen = transactionsArray.slice(-1).updated_at;
-  //       res.render('transactions', { pageTitle: 'Transaction History', transactions: transactionsArray});
+  //       //res.json(transactionsArray);
+  //        res.render('transactions', { pageTitle: 'Transaction History', transactions: transactionsArray});
   //   });
 
 
