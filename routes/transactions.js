@@ -7,7 +7,7 @@ var Transaction = require('../models/transaction.js');
 /* GET /transactions listing. */
 router.get('/', function(req, res, next) {
 
-  //Working on trying to implement a true infinite scroll
+  // Working on trying to implement a true infinite scroll
 
   // var lastSeen = null;
   //

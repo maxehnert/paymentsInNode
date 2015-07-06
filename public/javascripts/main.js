@@ -14,7 +14,7 @@ $(".js-payment-amount-input").blur( function() {
 
   // if regex returns NaN replace blank value
   if ( this.value == "NaN" ) {
-    this.value = "";
+    this.value = '';
   }
 
 });
@@ -45,9 +45,6 @@ $.each( currencyData, function( key, val ) {
   $(".dropdown-menu").append( $li );
  });
 
-
-// FIXME
-// TEMPORARY FIX TO KEEP MOVING THINGS ALONG
 
 $(".dropdown-menu li").click( function() {
 
@@ -124,7 +121,9 @@ $('.js-clear-form-btn').click( function(e) {
 /*
  * Flash a Load Screen After POSTing
 */
-$('.js-next-page-link').click( function() {
+$('.js-next-page-link').click( function(e) {
+  e.preventDefault();
+
   $('.overlay').addClass( 'overlay__flash' );
   $('.overlay i').addClass( 'fa fa-spinner fa-pulse fa-5x' );
 });
@@ -180,12 +179,16 @@ $('#paymentOption2').change(
  * This is a bit redundant so may come back to fix later based on
  * my todo list for the project
 */
-$('.js-payment-choice-type__send-btn').click( function() {
+$('.js-payment-choice-type__send-btn').click( function(e) {
+  e.preventDefault();
+
   $('.js-payment-choice-type__pay-btn').removeClass( 'js-payment-option-active' );
-  $('.js-payment-choice-type__send-btn').addClass( 'js-payment-option-active' );
+  $(this).addClass( 'js-payment-option-active' );
 });
 
-$('.js-payment-choice-type__pay-btn').click( function() {
+$('.js-payment-choice-type__pay-btn').click( function(e) {
+  e.preventDefault();
+
   $('.js-payment-choice-type__send-btn').removeClass( 'js-payment-option-active' );
-  $('.js-payment-choice-type__pay-btn').addClass( 'js-payment-option-active' );
+  $(this).addClass( 'js-payment-option-active' );
 });

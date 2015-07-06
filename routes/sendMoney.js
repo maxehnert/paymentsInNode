@@ -5,5 +5,4 @@ router.get('/', function(req, res) {
   res.render('sendMoney', { pageTitle: 'Send Money' });
 });
 
-
 module.exports = router;
