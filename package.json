@@ -19,5 +19,8 @@
     "morgan": "~1.5.3",
     "serve-favicon": "~2.2.1"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": "0.12.x"
+  }
 }
