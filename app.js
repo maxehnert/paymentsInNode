@@ -14,7 +14,17 @@ var transactions = require('./routes/transactions');
 var sendMoney = require('./routes/sendMoney');
 var success = require('./routes/success');
 
+/*
 mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
+  if(err) {
+      console.log('connection error', err);
+  } else {
+      console.log('connection successful');
+  }
+});
+*/
+
+mongoose.connect(' mongodb://user:password@ds047732.mongolab.com:47732/heroku_gj8n3xx5', function(err) {
   if(err) {
       console.log('connection error', err);
   } else {
