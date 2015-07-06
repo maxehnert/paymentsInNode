@@ -9,18 +9,17 @@ var fs = require('fs');
 var hbs = require('hbs');
 var moment = require('moment');
 
-
 var routes = require('./routes/index');
 var transactions = require('./routes/transactions');
 var sendMoney = require('./routes/sendMoney');
 var success = require('./routes/success');
 
 mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
-    if(err) {
-        console.log('connection error', err);
-    } else {
-        console.log('connection successful');
-    }
+  if(err) {
+      console.log('connection error', err);
+  } else {
+      console.log('connection successful');
+  }
 });
 
 var app = express();
@@ -29,11 +28,8 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// register your partial views
-hbs.registerPartials(__dirname + '/views/partials');
-
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+// app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,7 +37,7 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 // brought in local bootstrap and jquery so I can work offline
-app.use(express.static(path.join(__dirname, 'node_modules')));
+// app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', routes);
 app.use('/send', sendMoney);
@@ -79,6 +75,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;

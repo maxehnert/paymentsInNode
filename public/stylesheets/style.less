@@ -357,6 +357,11 @@ input:-webkit-autofill {
     border: none;
     font-size: @font-size-2;
     font-weight: @font-weight-400;
+    cursor: pointer;
+  }
+  
+  .list-group-item:hover {
+    opacity: 0.7;
   }
 
   .list-group-item__transaction-date {
@@ -372,6 +377,24 @@ input:-webkit-autofill {
   }
 }
 
+// accordion expand class
+.js-list-group-item__transaction-show-inner-content {
+  height: 30% !important;
+  padding-top: 1%;
+  width: 100%;
+}
+
+// accordion hide class
+.list-group-item__transaction-inner-content {
+  font-size: @font-size-2;
+  height: 0px;
+  overflow: auto;
+}
+
+.list-group-item__transaction-service {
+  padding-bottom: 3%;
+}
+
 .transaction-btn-wrapper {
   background-image: @brown;
   padding-bottom: 3%;
@@ -383,4 +406,5 @@ input:-webkit-autofill {
     width: 93%;
   }
 }
+
 // END Transaction History Page

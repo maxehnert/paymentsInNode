@@ -1,8 +1,9 @@
+
 <div class="list-group">
   <div class="list-group-item-container">
     {{! iterate over the list of transactions }}
     {{#each transactions}}
-      <div class="list-group-item row">
+      <div class="row list-group-item js-list-group-item_transactions">
         <div class="list-group-item__transaction-date col-md-4">
           {{dateString}}
         </div>
@@ -11,6 +12,14 @@
         </div>
         <div class="list-group-item__transaction-currency col-md-4">
           {{currencySymbol}}{{amount}}
+        </div>
+      </div>
+      <div class="js-list-group-item__transaction-inner-content list-group-item__transaction-inner-content">
+        <div class="col-md-12 list-group-item__transaction-service">
+          Type of Service: {{service}}
+        </div>
+        <div class="col-md-12 list-group-item__transaction-message">
+          Message: {{message}}
         </div>
       </div>
     {{/each}}

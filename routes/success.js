@@ -6,7 +6,9 @@ var router = express.Router();
 
 /* GET Newest Record */
 router.get('/', function(req, res) {
+
   Transaction.find(function (err, data) {
+
     if(err) {
       console.log(err);
       } else {
