@@ -28,13 +28,12 @@ var uri = process.env.MONGOLAB_URI ||
           process.env.MONGOHQ_URL ||
           'mongodb://localhost/HelloMongoose';
 
-mongoose.connect(uri, { server: { auto_reconnect: true } }, function (err, db) {
-  function(err) {
-    if (err) {
-      console.log ('ERROR connecting to: ' + uri + '. ' + err);
-    } else {
-      console.log ('Succeeded connected to: ' + uri);
-    }
+mongoose.connect(uri, { server: { auto_reconnect: true } }, function (err, res) {
+  if (err) {
+    console.log ('ERROR connecting to: ' + uri + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uri);
+  }
 });
 
 
