@@ -24,6 +24,7 @@ mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
   }
 });
 */
+
 var uri = process.env.MONGOLAB_URI ||
           process.env.MONGOHQ_URL ||
           'mongodb://localhost/HelloMongoose';
