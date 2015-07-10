@@ -20,8 +20,7 @@ router.get('/', function(req, res, next) {
 /* POST /transactions */
 router.post('/', function(req, res, next) {
 
-//  var newTransaction = new Transaction(req.body).save(
-    var newTransaction = new Transaction(req.body).insert(
+  var newTransaction = new Transaction(req.body).save(
 
     function(err, body ) {
 

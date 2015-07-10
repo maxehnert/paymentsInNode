@@ -10,14 +10,14 @@ var fs = require('fs');
 var hbs = require('hbs');
 var moment = require('moment');
 // for MongoLab
-var uriUtil = require('mongodb-uri');
-//
+//var uriUtil = require('mongodb-uri');
+
 var routes = require('./routes/index');
 var transactions = require('./routes/transactions');
 var sendMoney = require('./routes/sendMoney');
 var success = require('./routes/success');
 
-/*
+
 mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
   if(err) {
       console.log('connection error', err);
@@ -25,7 +25,7 @@ mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
       console.log('connection successful');
   }
 });
-*/
+
 
 // MongoLab Connection
 /*
@@ -41,37 +41,6 @@ mongoose.connect(uri, { server: { auto_reconnect: true } }, function (err, res) 
   }
 });
 */
-
-//////
-/*
- * Mongoose by default sets the auto_reconnect option to true.
- * We recommend setting socket options at both the server and replica set level.
- * We recommend a 30 second connection timeout because it allows for
- * plenty of time in most operating environments.
- */
-var options = { server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
-                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } };
-
-/*
- * Mongoose uses a different connection string format than MongoDB's standard.
- * Use the mongodb-uri library to help you convert from the standard format to
- * Mongoose's format.
- */
-var mongodbUri = process.env.MONGOLAB_URI ||
-                 process.env.MONGOHQ_URL ||
-                 'mongodb://localhost/HelloMongoose';
-var mongooseUri = uriUtil.formatMongoose(mongodbUri);
-
-mongoose.connect(mongooseUri, options);
-var conn = mongoose.connection;
-
-conn.on('error', console.error.bind(console, 'connection error:'));
-
-conn.once('open', function() {
-  // Wait for the database connection to establish, then start the app.
-});
-/////
-
 
 var app = express();
 
@@ -107,7 +76,7 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-/*
+
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -117,7 +86,7 @@ if (app.get('env') === 'development') {
     });
   });
 }
-*/
+
 
 // production error handler
 // no stacktraces leaked to user

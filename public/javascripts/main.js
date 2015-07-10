@@ -125,7 +125,6 @@ $('.js-clear-form-btn').click( function(e) {
  * Flash a Load Screen After POSTing
 */
 $('.js-next-page-link').click( function(e) {
-  e.preventDefault();
 
   $('.overlay').addClass( 'overlay__flash' );
   $('.overlay i').addClass( 'fa fa-spinner fa-pulse fa-5x' );
