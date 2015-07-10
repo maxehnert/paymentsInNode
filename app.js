@@ -17,7 +17,7 @@ var transactions = require('./routes/transactions');
 var sendMoney = require('./routes/sendMoney');
 var success = require('./routes/success');
 
-
+/*
 mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
   if(err) {
       console.log('connection error', err);
@@ -25,10 +25,10 @@ mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
       console.log('connection successful');
   }
 });
-
+*/
 
 // MongoLab Connection
-/*
+
 var uri = process.env.MONGOLAB_URI ||
           process.env.MONGOHQ_URL ||
           'mongodb://localhost/HelloMongoose';
@@ -40,7 +40,7 @@ mongoose.connect(uri, { server: { auto_reconnect: true } }, function (err, res) 
     console.log ('Succeeded connected to: ' + uri);
   }
 });
-*/
+
 
 var app = express();
 
@@ -77,6 +77,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 
+/*
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -86,7 +87,7 @@ if (app.get('env') === 'development') {
     });
   });
 }
-
+*/
 
 // production error handler
 // no stacktraces leaked to user
