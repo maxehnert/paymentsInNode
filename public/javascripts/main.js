@@ -209,17 +209,18 @@ $('.js-list-group-item_transactions').click( function(e) {
 });
 
 // Delete a transaction from the list and remove it from the db
-$('.js-delete-list-group-item').click(function(){
-  var $el = $(this).parent();
-  var $el2 = $(this).parent().next();
-  var id = $(this).parent().attr("data-id");
+$('.js-delete-list-group-item__btn').click(function(){
+  var $elParent = $(this).parent();
+  var $elParentPrevious = $(this).parent().prev();
+  var id = $(this).parent().prev().attr("data-id");
 
   $.ajax({
     type: 'DELETE',
     url: '/transactions/'+id,
     data: id,
   }).success(function(){
-    $el.remove();
-    $el2.remove();
+    // remove the el from the DOM
+    $elParent.remove();
+    $elParentPrevious.remove();
   });
 });

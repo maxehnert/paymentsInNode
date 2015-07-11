@@ -13,7 +13,6 @@
         <div class="list-group-item__transaction-currency col-md-4">
           {{currencySymbol}}{{amount}}
         </div>
-        <button type="button" name="button" class="btn js-delete-list-group-item">Delete</button>
       </div>
       <div class="js-list-group-item__transaction-inner-content list-group-item__transaction-inner-content">
         <div class="col-md-12 list-group-item__transaction-service">
@@ -22,6 +21,7 @@
         <div class="col-md-12 list-group-item__transaction-message">
           Message: {{message}}
         </div>
+        <button type="button" name="button" class="btn btn-danger js-delete-list-group-item__btn delete-list-group-item__btn">Delete</button>
       </div>
     {{/each}}
   </div>
