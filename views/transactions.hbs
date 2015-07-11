@@ -3,7 +3,7 @@
   <div class="list-group-item-container">
     {{! iterate over the list of transactions }}
     {{#each transactions}}
-      <div class="row list-group-item js-list-group-item_transactions">
+      <div class="row list-group-item js-list-group-item_transactions" data-id= {{_id}}>
         <div class="list-group-item__transaction-date col-md-4">
           {{dateString}}
         </div>

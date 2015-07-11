@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
       console.log(err);
     } else {
       res.render('transactions', { pageTitle: 'Transaction History', transactions: transactionsArray });
+    //res.json(transactionsArray);
     }
   }).sort({"updated_at": -1});
 });
