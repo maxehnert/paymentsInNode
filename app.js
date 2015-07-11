@@ -17,7 +17,7 @@ var transactions = require('./routes/transactions');
 var sendMoney = require('./routes/sendMoney');
 var success = require('./routes/success');
 
-
+/*
 mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
   if(err) {
       console.log('connection error', err);
@@ -25,11 +25,11 @@ mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
       console.log('connection successful');
   }
 });
-
+*/
 
 // MongoLab Connection
 // Heroku URL http://still-reaches-4133.herokuapp.com/
-/*
+
 var uri = process.env.MONGOLAB_URI ||
           process.env.MONGOHQ_URL ||
           'mongodb://localhost/HelloMongoose';
@@ -41,7 +41,7 @@ mongoose.connect(uri, { server: { auto_reconnect: true } }, function (err, res) 
     console.log ('Succeeded connected to: ' + uri);
   }
 });
-*/
+
 
 var app = express();
 
