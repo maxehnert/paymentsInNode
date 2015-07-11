@@ -213,19 +213,13 @@ $('.js-delete-list-group-item').click(function(){
   var $el = $(this).parent();
   var $el2 = $(this).parent().next();
   var id = $(this).parent().attr("data-id");
-console.log(id);
+
   $.ajax({
     type: 'DELETE',
-     url: '/transactions/'+id,
+    url: '/transactions/'+id,
     data: id,
   }).success(function(){
     $el.remove();
     $el2.remove();
   });
-
-  // $.get('/transactions/', $id, function(data) {
-  //   console.log('test', data);
-  // }).done(function($el){
-  //   $el.remove();
-  // });
 });
