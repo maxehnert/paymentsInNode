@@ -207,3 +207,25 @@ $('.js-list-group-item_transactions').click( function(e) {
     $(this).next().addClass('js-list-group-item__transaction-show-inner-content');
   }
 });
+
+// Delete a transaction from the list and remove it from the db
+$('.js-delete-list-group-item').click(function(){
+  var $el = $(this).parent();
+  var $el2 = $(this).parent().next();
+  var id = $(this).parent().attr("data-id");
+console.log(id);
+  $.ajax({
+    type: 'DELETE',
+     url: '/transactions/'+id,
+    data: id,
+  }).success(function(){
+    $el.remove();
+    $el2.remove();
+  });
+
+  // $.get('/transactions/', $id, function(data) {
+  //   console.log('test', data);
+  // }).done(function($el){
+  //   $el.remove();
+  // });
+});
