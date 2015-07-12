@@ -153,7 +153,6 @@ $('.js-email-input').change(
 */
 $('#paymentOption1').change(
   function(e) {
-    e.preventDefault();
 
     if ( $('#paymentOption1:checked').length === 1 ) {
       $('.js-payment-choice-type__pay-icon').hide();
@@ -164,7 +163,6 @@ $('#paymentOption1').change(
 
 $('#paymentOption2').change(
   function(e) {
-    e.preventDefault();
 
     if( $('#paymentOption2:checked').length === 1 ) {
       $('.js-payment-choice-type__send-icon').hide();
@@ -209,16 +207,16 @@ $('.js-list-group-item_transactions').click( function(e) {
 });
 
 // Delete a transaction from the list and remove it from the db
-$('.js-delete-list-group-item__btn').click(function(){
+$('.js-delete-list-group-item__btn').click( function() {
   var $elParent = $(this).parent();
   var $elParentPrevious = $(this).parent().prev();
   var id = $(this).parent().prev().attr("data-id");
 
   $.ajax({
     type: 'DELETE',
-    url: '/transactions/'+id,
+    url: '/transactions/' + id,
     data: id,
-  }).success(function(){
+  }).success( function() {
     // remove the el from the DOM
     $elParent.remove();
     $elParentPrevious.remove();

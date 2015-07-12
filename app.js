@@ -17,6 +17,7 @@ var transactions = require('./routes/transactions');
 var sendMoney = require('./routes/sendMoney');
 var success = require('./routes/success');
 
+// localhost Connection
 /*
 mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
   if(err) {

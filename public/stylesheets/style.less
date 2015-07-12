@@ -27,7 +27,7 @@
 @white: HSLA(0, 0%, 100%, 1);
 
  // Payment Choice Active Orange
-@payment-orange: HSLA(28, 56%, 58%, 1);
+@payment-blue: HSLA(194, 91%, 56%, 1);
 
 // FONTS
 @font-size-1: 1.2em;
@@ -106,7 +106,7 @@ input:-webkit-autofill {
   border-radius: 6px;
   border: transparent;
   box-shadow: 0 7px 6px -4px HSLA(60, 0%, 55%, 1);
-  color: @black-btn-font;
+  color: @white;
   height: 125px;
   text-align: @align-center;
   width: 87%;
@@ -125,7 +125,7 @@ input:-webkit-autofill {
 .view-transaction-hist-btn:hover,
 .send-money-btn:active,
 .view-transaction-hist-btn:active{
-  background-image: linear-gradient(HSLA(0, 0%, 86%, 1), HSLA(0, 0%, 70%, 1));
+  background-color: HSLA(196, 92%, 75%, 1);
 }
 
 .send-money-btn {
@@ -200,9 +200,10 @@ input:-webkit-autofill {
   margin-top: -6px;
 
   .currency-btn, .dropdown-toggle {
-    background-color: HSLA(0, 0%, 93%, 1);
+    background-image: @brown;
     border: @2px-black;
     border-radius: 6px;
+    color: @white;
   }
 
   .currency-btn {
@@ -253,13 +254,13 @@ input:-webkit-autofill {
   }
 
   .js-payment-option-active, .js-payment-option-active:hover {
-    color: @payment-orange;
+    color: @payment-blue;
   }
 
   .payment-choice-type__send-icon,
   .payment-choice-type__pay-icon {
     display: none;
-    color: @payment-orange;
+    color: @payment-blue;
   }
 }
 
@@ -320,7 +321,7 @@ input:-webkit-autofill {
 }
 
 .fa-check {
-  color: HSLA(29, 63%, 56%, 1);
+  color: @payment-blue;
   margin-left: 43%;
 }
 
