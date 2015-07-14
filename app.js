@@ -18,7 +18,6 @@ var sendMoney = require('./routes/sendMoney');
 var success = require('./routes/success');
 
 // localhost Connection
-
 mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
   if(err) {
       console.log('connection error', err);
@@ -66,6 +65,7 @@ app.use('/send', sendMoney);
 app.use('/send', transactions);
 app.use('/success', success);
 app.use('/transactions', transactions);
+app.use('/about', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
