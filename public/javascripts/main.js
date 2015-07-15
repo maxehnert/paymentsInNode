@@ -48,7 +48,6 @@ $.each( currencyData, function( key, val ) {
 /*
  * Generate currency symbol and type and swap them depending on which is clicked
 */
-
 $(".dropdown-menu li").click( function() {
 
  if ( this.textContent === currencyData[0].currency ) {
@@ -122,7 +121,7 @@ $('.js-email-input').change(
 );
 
 /*
- * Watch the payment type and toggle the icons and
+ * Watch the payment type and toggle the icons and font color
  * If valid then show the check mark when it loses focus
 */
 $('#paymentOption1').change(
@@ -131,6 +130,9 @@ $('#paymentOption1').change(
     if ( $('#paymentOption1:checked').length === 1 ) {
       $('.js-payment-choice-type__pay-icon').hide();
       $('.js-payment-choice-type__send-icon').show();
+
+      $('.js-payment-choice-type__pay-btn').removeClass( 'js-payment-option-active' );
+      $(this).parent().addClass( 'js-payment-option-active' );
     }
   }
 );
@@ -141,27 +143,12 @@ $('#paymentOption2').change(
     if( $('#paymentOption2:checked').length === 1 ) {
       $('.js-payment-choice-type__send-icon').hide();
       $('.js-payment-choice-type__pay-icon').show();
+
+      $('.js-payment-choice-type__send-btn').removeClass( 'js-payment-option-active' );
+      $(this).parent().addClass( 'js-payment-option-active' );
     }
   }
 );
-
-/*
- * Watch the payment type focus and toggle the font color
-*/
-$('.js-payment-choice-type__send-btn').click( function(e) {
-  e.preventDefault();
-
-  $('.js-payment-choice-type__pay-btn').removeClass( 'js-payment-option-active' );
-  $(this).addClass( 'js-payment-option-active' );
-});
-
-$('.js-payment-choice-type__pay-btn').click( function(e) {
-  e.preventDefault();
-
-  $('.js-payment-choice-type__send-btn').removeClass( 'js-payment-option-active' );
-  $(this).addClass( 'js-payment-option-active' );
-});
-
 
 /*
  * Transaction History Accordion
@@ -169,14 +156,14 @@ $('.js-payment-choice-type__pay-btn').click( function(e) {
 $('.js-list-group-item_transactions').click( function(e) {
   e.preventDefault();
 
-  if ( $(this).next().hasClass('js-list-group-item__transaction-show-inner-content') ) {
+  if ( $(this).next().hasClass( 'js-list-group-item__transaction-show-inner-content' ) ) {
 
-    $('.js-list-group-item__transaction-inner-content').removeClass('js-list-group-item__transaction-show-inner-content');
+    $('.js-list-group-item__transaction-inner-content').removeClass( 'js-list-group-item__transaction-show-inner-content' );
   } else {
 
-    $('.js-list-group-item__transaction-inner-content').removeClass('js-list-group-item__transaction-show-inner-content');
+    $('.js-list-group-item__transaction-inner-content').removeClass( 'js-list-group-item__transaction-show-inner-content' );
 
-    $(this).next().addClass('js-list-group-item__transaction-show-inner-content');
+    $(this).next().addClass( 'js-list-group-item__transaction-show-inner-content' );
   }
 });
 
