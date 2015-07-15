@@ -52,55 +52,29 @@ $.each( currencyData, function( key, val ) {
 $(".dropdown-menu li").click( function() {
 
  if ( this.textContent === currencyData[0].currency ) {
-
-   getUSDSymbol();
+    getCurrency(currencyData[0].currency, currencyData[0].symbol);
 
  } else if ( this.textContent === currencyData[1].currency ) {
-
-   getEURSymbol();
+    getCurrency(currencyData[1].currency, currencyData[1].symbol);
 
  } else if ( this.textContent === currencyData[2].currency ) {
-
-   getJPYSymbol();
+    getCurrency(currencyData[2].currency, currencyData[2].symbol);
  };
 });
 
-function getUSDSymbol() {
+/*
+ * Swap currency type and symbol
+*/
+function getCurrency(currency, symbol) {
   // inserts visible currency symbol to form
-  var $span = $("<span class='js-currency-symbol' > " + currencyData[0].symbol + "</span>");
+  var $span = $("<span class='js-currency-symbol' > " + symbol + "</span>");
 
   // hidden input to save currency symbol
   var $input = $("<input type='text' class='js-hidden-currency-symbol' value=" +
-   currencyData[0].symbol + " style='display:none' name='currencySymbol'>");
+   symbol + " style='display:none' name='currencySymbol'>");
 
   $('.js-currency-symbol').remove();
-  $('.js-currency-btn').text( currencyData[0].currency );
-  $('.js-input-amount-prepend').append( $span );
-
-  $('.js-hidden-currency-symbol').remove();
-  $('.js-currency-btn-group').append( $input );
-};
-
-function getEURSymbol() {
-  var $span = $("<span class='js-currency-symbol' > "+ currencyData[1].symbol + "</span>");
-  var $input = $("<input type='text' class='js-hidden-currency-symbol' value=" +
-   currencyData[1].symbol + " style='display:none' name='currencySymbol'>");
-
-  $('.js-currency-symbol').remove();
-  $('.js-currency-btn').text( currencyData[1].currency );
-  $('.js-input-amount-prepend').append( $span );
-
-  $('.js-hidden-currency-symbol').remove();
-  $('.js-currency-btn-group').append( $input );
-};
-
-function getJPYSymbol() {
-  var $span = $("<span class='js-currency-symbol' > " + currencyData[2].symbol + "</span>");
-  var $input = $("<input type='text' class='js-hidden-currency-symbol' value=" +
-   currencyData[2].symbol + " style='display:none' name='currencySymbol'>");
-
-  $('.js-currency-symbol').remove();
-  $('.js-currency-btn').text( currencyData[2].currency );
+  $('.js-currency-btn').text( currency );
   $('.js-input-amount-prepend').append( $span );
 
   $('.js-hidden-currency-symbol').remove();
