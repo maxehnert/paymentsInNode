@@ -72,9 +72,16 @@ button:hover, button:active {
 }
 
 // Force Chrome to change background-color for input values
-input:-webkit-autofill {
+input::-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px @light-tan inset;
 }
+// Force Chrome to remove the arrows and built in input features
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 
 .main-container {
   background-image: @brown;
@@ -251,6 +258,7 @@ overflow: auto;
   .payment-choice-type__pay-btn {
     font-size: @font-size-1;
     height: 60px;
+    padding-top: 2%;
     text-align: left;
   }
 

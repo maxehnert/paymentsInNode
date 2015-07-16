@@ -5,13 +5,35 @@ $(".js-payment-amount-input").blur( function() {
 
   // regex to parse value
   this.value =
+    turns the string into a floating point number ex 1.11
     parseFloat(
       this.value
         .replace(/,/g, ""))
         .toFixed(2)
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// var a, b;
+//    a = this.value;
+//    this.value = parseInt(a).toLocaleString('de-DE', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+//    //console.log(this.value);
+//
+//
+//    console.log(this.value);
 
+  // a.toLocaleString();
+/*
+  \B - Matches a non-word boundary
+  ?= - lookahead - x(?=y) Matches 'x' only if 'x' is followed by 'y'.
+  \d - Matches a digit character. Equivalent to [0-9].
+  {n} - Matches exactly n occurrences of the preceding character. N must be a positive integer.
+  + - Matches the preceding character 1 or more times. Equivalent to {1,}.
+  ?! - negated lookahead - x(?!y) Matches 'x' only if 'x' is not followed by 'y'.
+  /g -
+
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format
+
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString
+*/
   // if regex returns NaN replace blank value
   if ( this.value == "NaN" ) {
     this.value = '';
@@ -35,6 +57,18 @@ var currencyData = [
 ];
 
 /*
+ * Loop through the currency array
+*/
+function myCurrencyIndexOf(o) {
+   for ( var i = 0; i < currencyData.length; i++ ) {
+       if ( currencyData[i].currency == o ) {
+           return i;
+       }
+   }
+   return -1;
+ };
+
+/*
  * Inserts <li> list of values into the currency dropdown
 */
 $.each( currencyData, function( key, val ) {
@@ -46,35 +80,27 @@ $.each( currencyData, function( key, val ) {
  });
 
 /*
- * Generate currency symbol and type and swap them depending on which is clicked
+ * Identify which currency symbol and type was selected
 */
 $(".dropdown-menu li").click( function() {
-
- if ( this.textContent === currencyData[0].currency ) {
-    getCurrency(currencyData[0].currency, currencyData[0].symbol);
-
- } else if ( this.textContent === currencyData[1].currency ) {
-    getCurrency(currencyData[1].currency, currencyData[1].symbol);
-
- } else if ( this.textContent === currencyData[2].currency ) {
-    getCurrency(currencyData[2].currency, currencyData[2].symbol);
- };
+  // Check which currency was chosen from the loop
+  var currentIndex = myCurrencyIndexOf( this.textContent );
+  // Insert that index and pass it along to swap the currency symbol and type
+  getCurrency( currencyData[currentIndex].currency, currencyData[currentIndex].symbol );
 });
 
 /*
  * Swap currency type and symbol
 */
 function getCurrency(currency, symbol) {
-  // inserts visible currency symbol to form
-  var $span = $("<span class='js-currency-symbol' > " + symbol + "</span>");
 
   // hidden input to save currency symbol
   var $input = $("<input type='text' class='js-hidden-currency-symbol' value=" +
    symbol + " style='display:none' name='currencySymbol'>");
 
-  $('.js-currency-symbol').remove();
   $('.js-currency-btn').text( currency );
-  $('.js-input-amount-prepend').append( $span );
+  // inserts visible currency symbol to form
+  $('.js-currency-symbol').text( symbol );
 
   $('.js-hidden-currency-symbol').remove();
   $('.js-currency-btn-group').append( $input );
@@ -97,7 +123,7 @@ $('.js-clear-form-btn').click( function(e) {
 /*
  * Flash a Load Screen After POSTing
 */
-$('.js-next-page-link').click( function(e) {
+$('.js-next-page-link').click( function() {
 
   $('.overlay').addClass( 'overlay__flash' );
   $('.overlay i').addClass( 'fa fa-spinner fa-pulse fa-5x' );
@@ -125,7 +151,7 @@ $('.js-email-input').change(
  * If valid then show the check mark when it loses focus
 */
 $('#paymentOption1').change(
-  function(e) {
+  function() {
 
     if ( $('#paymentOption1:checked').length === 1 ) {
       $('.js-payment-choice-type__pay-icon').hide();
@@ -138,7 +164,7 @@ $('#paymentOption1').change(
 );
 
 $('#paymentOption2').change(
-  function(e) {
+  function() {
 
     if( $('#paymentOption2:checked').length === 1 ) {
       $('.js-payment-choice-type__send-icon').hide();
