@@ -5,55 +5,58 @@ $(".js-payment-amount-input").blur( function() {
 
   // regex to parse value
   this.value =
-    turns the string into a floating point number ex 1.11
     parseFloat(
       this.value
-        .replace(/,/g, ""))
+        // remove commas
+        .replace(/,/g, "")
         .toFixed(2)
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-// var a, b;
-//    a = this.value;
-//    this.value = parseInt(a).toLocaleString('de-DE', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 });
-//    //console.log(this.value);
-//
-//
-//    console.log(this.value);
 
-  // a.toLocaleString();
-/*
-  \B - Matches a non-word boundary
-  ?= - lookahead - x(?=y) Matches 'x' only if 'x' is followed by 'y'.
-  \d - Matches a digit character. Equivalent to [0-9].
-  {n} - Matches exactly n occurrences of the preceding character. N must be a positive integer.
-  + - Matches the preceding character 1 or more times. Equivalent to {1,}.
-  ?! - negated lookahead - x(?!y) Matches 'x' only if 'x' is not followed by 'y'.
-  /g -
+        //.replace(^[+-]?[0-9]{1,3}(?:[0-9]*(?:[.,][0-9]{2})?)$);
 
-  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format
+//.replace(/^[+-]?[0-9]{1,3}(?:[0-9]*(?:[.,][0-9]{2})?|(?:,[0-9]{3})*(?:\.[0-9]{2})?|(?:\.[0-9]{3})*(?:,[0-9]{2})?)$/g);
 
-  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString
-*/
+//^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*\.[0-9]{2}$
+
+        //.replace(/\D\d\d$/, ",");
+  /*
+    \B - Matches a non-word boundary
+    ?= - lookahead - x(?=y) Matches 'x' only if 'x' is followed by 'y'.
+    \d - Matches a digit character. Equivalent to [0-9].
+    {n} - Matches exactly n occurrences of the preceding character. N must be a positive integer.
+    + - Matches the preceding character 1 or more times. Equivalent to {1,}. States it can be repeated multiple times.
+    ?! - negated lookahead - x(?!y) Matches 'x' only if 'x' is not followed by 'y'.
+    /g - global - all matches will be replaced
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString
+  */
+
+
+  //  this.value = parseFloat(this.value).toLocaleString('de-DE', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  //  console.log(this.value);
+
   // if regex returns NaN replace blank value
   if ( this.value == "NaN" ) {
     this.value = '';
   }
-
 });
 
 var currencyData = [
   {
     "currency": "USD",
-    "symbol" : "$"
+    "symbol"  : "$"
   },
   {
     "currency": "EUR",
-    "symbol" : "€"
+    "symbol"  : "€"
   },
   {
     "currency": "JPY",
-    "symbol" : "¥"
-  }
+    "symbol"  : "¥"
+  },
+    "currency": "GBP",
+    "symbol"  : "£"
 ];
 
 /*
@@ -129,7 +132,6 @@ $('.js-next-page-link').click( function() {
   $('.overlay i').addClass( 'fa fa-spinner fa-pulse fa-5x' );
 });
 
-
 /*
  * Watch the email input for a valid response
  * If valid then show the check mark when it loses focus
@@ -148,31 +150,18 @@ $('.js-email-input').change(
 
 /*
  * Watch the payment type and toggle the icons and font color
- * If valid then show the check mark when it loses focus
+ * If valid then show the check mark
 */
-$('#paymentOption1').change(
+$('.js-payment-choice-type-group input').change(
   function() {
-
-    if ( $('#paymentOption1:checked').length === 1 ) {
-      $('.js-payment-choice-type__pay-icon').hide();
-      $('.js-payment-choice-type__send-icon').show();
-
-      $('.js-payment-choice-type__pay-btn').removeClass( 'js-payment-option-active' );
-      $(this).parent().addClass( 'js-payment-option-active' );
-    }
-  }
-);
-
-$('#paymentOption2').change(
-  function() {
-
-    if( $('#paymentOption2:checked').length === 1 ) {
-      $('.js-payment-choice-type__send-icon').hide();
-      $('.js-payment-choice-type__pay-icon').show();
-
-      $('.js-payment-choice-type__send-btn').removeClass( 'js-payment-option-active' );
-      $(this).parent().addClass( 'js-payment-option-active' );
-    }
+    // Remove active state from other option
+    $(this).parent().siblings().removeClass( 'js-payment-option-active' );
+    // Remove icon display from other option
+    $(this).parent().siblings().children().hide();
+    // Add active state to the clicked on option
+    $(this).parent().addClass( 'js-payment-option-active' );
+    // Add icon display to the clicked on option
+    $(this).next().show();
   }
 );
 
