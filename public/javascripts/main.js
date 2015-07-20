@@ -13,29 +13,6 @@ $(".js-payment-amount-input").blur( function() {
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-        //.replace(^[+-]?[0-9]{1,3}(?:[0-9]*(?:[.,][0-9]{2})?)$);
-
-//.replace(/^[+-]?[0-9]{1,3}(?:[0-9]*(?:[.,][0-9]{2})?|(?:,[0-9]{3})*(?:\.[0-9]{2})?|(?:\.[0-9]{3})*(?:,[0-9]{2})?)$/g);
-
-//^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*\.[0-9]{2}$
-
-        //.replace(/\D\d\d$/, ",");
-  /*
-    \B - Matches a non-word boundary
-    ?= - lookahead - x(?=y) Matches 'x' only if 'x' is followed by 'y'.
-    \d - Matches a digit character. Equivalent to [0-9].
-    {n} - Matches exactly n occurrences of the preceding character. N must be a positive integer.
-    + - Matches the preceding character 1 or more times. Equivalent to {1,}. States it can be repeated multiple times.
-    ?! - negated lookahead - x(?!y) Matches 'x' only if 'x' is not followed by 'y'.
-    /g - global - all matches will be replaced
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString
-  */
-
-
-  //  this.value = parseFloat(this.value).toLocaleString('de-DE', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  //  console.log(this.value);
-
   // if regex returns NaN replace blank value
   if ( this.value == "NaN" ) {
     this.value = '';
@@ -88,10 +65,14 @@ $.each( currencyData, function( key, val ) {
  * Identify which currency symbol and type was selected
 */
 $(".dropdown-menu li").click( function() {
+
   // Check which currency was chosen from the loop
   var currentIndex = myCurrencyIndexOf( this.textContent );
   // Insert that index and pass it along to swap the currency symbol and type
-  getCurrency( currencyData[currentIndex].currency, currencyData[currentIndex].symbol );
+  getCurrency(
+    currencyData[currentIndex].currency,
+    currencyData[currentIndex].symbol
+  );
 });
 
 /*
@@ -99,16 +80,12 @@ $(".dropdown-menu li").click( function() {
 */
 function getCurrency(currency, symbol) {
 
-  // hidden input to save currency symbol
-  var $input = $("<input type='text' class='js-hidden-currency-symbol' value=" +
-   symbol + " style='display:none' name='currencySymbol'>");
-
+  // Inserts visible currency type to button
   $('.js-currency-btn').text( currency );
-  // inserts visible currency symbol to form
+  // Inserts visible currency symbol to form
   $('.js-currency-symbol').text( symbol );
-
-  $('.js-hidden-currency-symbol').remove();
-  $('.js-currency-btn-group').append( $input );
+  // Inserts currency symbol into hidden text input
+  $('.js-hidden-currency-symbol').val( symbol );
 };
 
 /*
@@ -130,8 +107,8 @@ $('.js-clear-form-btn').click( function(e) {
 */
 $('.js-next-page-link').click( function() {
 
-  $('.overlay').addClass( 'overlay__flash' );
-  $('.overlay i').addClass( 'fa fa-spinner fa-pulse fa-5x' );
+  //$('.overlay').addClass( 'overlay__flash' );
+  //$('.overlay i').addClass( 'fa fa-spinner fa-pulse fa-5x' );
 });
 
 /*

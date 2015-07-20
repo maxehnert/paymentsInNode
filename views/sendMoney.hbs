@@ -12,8 +12,7 @@
   <div class="form-group"> <!-- Currency Input Section-->
     <div class="wrapper">
       <span class="js-input-amount-prepend input-amount-prepend">Amount:</span>
-      <span class="js-currency-symbol"></span>
-      <!-- INSERT  <span class="js-currency-symbol"> -->
+      <span required class="js-currency-symbol"></span>
       <input type="text" required class="js-payment-amount-input payment-amount-input" name="amount" placeholder="enter amount">
       <div class="btn-group js-currency-btn-group currency-btn-group">
         <button type="button" class="btn js-currency-btn currency-btn">Currency</button>
@@ -25,7 +24,7 @@
           <!-- INSERT li Items -->
         </ul>
       </div>
-      <!-- INSERT Hidden currency symbol input -->
+      <input type="text" class="js-hidden-currency-symbol" name="currencySymbol" value=""> <!-- Hidden currency symbol input -->
     </div>
   </div> <!-- End Currency Input Section-->
   <div class="wrapper"> <!-- Message Input Section-->
@@ -36,7 +35,7 @@
   <div class="payment-choice-wrapper">
     <div class="btn-group-vertical payment-choice-type-group js-payment-choice-type-group" data-toggle="buttons">
       <label class="btn js-payment-choice-type__send-btn payment-choice-type__send-btn">
-        <input type="radio" name="service" id="paymentOption1" autocomplete="off" value="sending money"> I'm sending money to friends or family <i class="fa fa-check fa-2x pull-right js-payment-choice-type__send-icon payment-choice-type__send-icon"></i>
+        <input required type="radio" name="service" id="paymentOption1" autocomplete="off" value="sending money"> I'm sending money to friends or family <i class="fa fa-check fa-2x pull-right js-payment-choice-type__send-icon payment-choice-type__send-icon"></i>
       </label>
       <label class="btn js-payment-choice-type__pay-btn payment-choice-type__pay-btn">
         <input type="radio" name="service" id="paymentOption2" autocomplete="off" value="paying for goods"> I'm paying for goods or services <i class="fa fa-check fa-2x pull-right js-payment-choice-type__pay-icon payment-choice-type__pay-icon"></i>
@@ -47,7 +46,8 @@
     <a href="#" class="clear-form-link">
       <button class="btn btn-group js-clear-form-btn clear-form-btn">Clear</button>
     </a>
-    <a href="success" class="js-next-page-link next-page-link">
+    <!-- <a href="success" class="js-next-page-link next-page-link"> -->
+    <a href="#" class="js-next-page-link next-page-link">
       <button class="btn btn-group next-page-btn" type="submit">Next</button>
     </a>
   </div> <!-- END Footer Buttons Section-->
