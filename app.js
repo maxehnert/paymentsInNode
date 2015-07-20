@@ -18,6 +18,7 @@ var sendMoney = require('./routes/sendMoney');
 var success = require('./routes/success');
 
 // localhost Connection
+/*
 mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
   if(err) {
       console.log('connection error', err);
@@ -25,11 +26,11 @@ mongoose.connect('mongodb://localhost:27017/paypalExercise', function(err) {
       console.log('connection successful');
   }
 });
-
+*/
 
 // MongoLab Connection
 // Heroku URL http://still-reaches-4133.herokuapp.com/
-/*
+
 var uri = process.env.MONGOLAB_URI ||
           process.env.MONGOHQ_URL ||
           'mongodb://localhost/HelloMongoose';
@@ -41,7 +42,7 @@ mongoose.connect(uri, { server: { auto_reconnect: true } }, function (err, res) 
     console.log ('Succeeded connected to: ' + uri);
   }
 });
-*/
+
 
 var app = express();
 
@@ -58,7 +59,7 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 // brought in local bootstrap and jquery so I can work offline
- app.use(express.static(path.join(__dirname, 'node_modules')));
+//app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', routes);
 app.use('/send', sendMoney);

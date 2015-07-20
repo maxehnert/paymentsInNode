@@ -42,6 +42,7 @@ var currencyData = [
  * Loop through the currency array
 */
 function myCurrencyIndexOf(symbol) {
+
    for ( var i = 0; i < currencyData.length; i++ ) {
        if ( currencyData[i].currency == symbol ) {
            return i;
@@ -107,8 +108,10 @@ $('.js-clear-form-btn').click( function(e) {
 */
 $('.js-next-page-link').click( function() {
 
-  //$('.overlay').addClass( 'overlay__flash' );
-  //$('.overlay i').addClass( 'fa fa-spinner fa-pulse fa-5x' );
+  if ( $('.send-form')[0].checkValidity() ) {
+    $('.overlay').addClass( 'overlay__flash' );
+    $('.overlay i').addClass( 'fa fa-spinner fa-pulse fa-5x' );
+  }
 });
 
 /*
@@ -150,27 +153,30 @@ $('.js-payment-choice-type-group input').change(
 $('.js-list-group-item_transactions').click( function(e) {
   e.preventDefault();
 
-  if ( $(this).next().hasClass( 'js-list-group-item__transaction-show-inner-content' ) ) {
+  // Create some variables for the class names because they're so long
+  var $innerContent = ".js-list-group-item__transaction-inner-content";
 
-    $('.js-list-group-item__transaction-inner-content').removeClass( 'js-list-group-item__transaction-show-inner-content' );
+  var $showInnerContent = "js-list-group-item__transaction-show-inner-content";
+
+  if ( $(this).next().hasClass( $showInnerContent ) ) {
+    $( $innerContent ).removeClass( $showInnerContent );
   } else {
-
-    $('.js-list-group-item__transaction-inner-content').removeClass( 'js-list-group-item__transaction-show-inner-content' );
-
-    $(this).next().addClass( 'js-list-group-item__transaction-show-inner-content' );
+    $( $innerContent ).removeClass( $showInnerContent );
+    $(this).next().addClass( $showInnerContent );
   }
 });
 
 // Delete a transaction from the list and remove it from the db
 $('.js-delete-list-group-item__btn').click( function() {
+
   var $elParent = $(this).parent();
   var $elParentPrevious = $(this).parent().prev();
-  var id = $(this).parent().prev().attr("data-id");
+  var $id = $(this).parent().prev().attr("data-id");
 
   $.ajax({
     type: 'DELETE',
-    url: '/transactions/' + id,
-    data: id,
+    url: '/transactions/' + $id,
+    data: $id,
   }).success( function() {
     // remove the el from the DOM
     $elParent.remove();
