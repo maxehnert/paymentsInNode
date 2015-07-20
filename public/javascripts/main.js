@@ -8,7 +8,7 @@ $(".js-payment-amount-input").blur( function() {
     parseFloat(
       this.value
         // remove commas
-        .replace(/,/g, "")
+        .replace(/,/g, ""))
         .toFixed(2)
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -55,16 +55,18 @@ var currencyData = [
     "currency": "JPY",
     "symbol"  : "¥"
   },
+  {
     "currency": "GBP",
     "symbol"  : "£"
+  }
 ];
 
 /*
  * Loop through the currency array
 */
-function myCurrencyIndexOf(o) {
+function myCurrencyIndexOf(symbol) {
    for ( var i = 0; i < currencyData.length; i++ ) {
-       if ( currencyData[i].currency == o ) {
+       if ( currencyData[i].currency == symbol ) {
            return i;
        }
    }

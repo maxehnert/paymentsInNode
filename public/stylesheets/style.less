@@ -5,20 +5,20 @@
 
 // COLORS
 
- // Header and Footer Background
-@brown: radial-gradient(HSLA(201, 100%, 53%, 1), HSLA(192, 89%, 57%, 1));
+ // Header and Footer Background Color
+@blue-radial: radial-gradient( HSLA(201, 100%, 53%, 1), HSLA(192, 89%, 57%, 1) );
 
- // Main Section Background
-@tan: HSLA(326, 26%, 95%, 1);
+ // Main Section Background Color
+@soft-peach: HSLA(326, 26%, 95%, 1);
 
- // Input Field Background
-@light-tan: HSLA(0, 0%, 89%, 1);
+ // Input Field Background Color
+@light-grey: HSLA(0, 0%, 89%, 1);
 
  // Button Color
-@gray-btn: radial-gradient( HSLA(80, 60%, 99%, 1),HSLA(0, 0%, 89%, 1));
+@gray-btn: radial-gradient( HSLA(80, 60%, 99%, 1), @light-grey );
 
- // Choice Btns
-@choice-btn: linear-gradient(HSLA(205, 100%, 53%, 1), HSLA(197, 89%, 57%, 1));
+ // Choice Btns Color
+@choice-btn: linear-gradient( HSLA(205, 100%, 53%, 1), HSLA(197, 89%, 57%, 1) );
 
  // Button Font Color
 @black-btn-font: HSLA(0, 0%, 25%, 1);
@@ -26,7 +26,7 @@
  // White
 @white: HSLA(0, 0%, 100%, 1);
 
- // Payment Choice Active Orange
+ // Payment Choice Active Orange Color
 @payment-blue: HSLA(194, 91%, 56%, 1);
 
 // FONTS
@@ -45,56 +45,61 @@
 
 // Buttons
 .btn-mixin {
+  background-color: @white;
   background-image: @gray-btn;
+  border-radius: 15px;
   color: @black-btn-font;
   font-size: @font-size-2;
   font-weight: @font-weight-400;
   height: 60px;
   outline: @no-outline;
-
-  border-radius: 15px;
-  background-color: @white;
 }
 
-body {
-  //padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  text-decoration: none;
-}
-
-// set universal button states
-button:focus {
-  outline: 0;
+@media (min-width: 768px) {
+  .list-group-item div {
+    text-align: left;
   }
-
-button:hover, button:active {
-  opacity: 0.7;
 }
 
 // Force Chrome to change background-color for input values
 input::-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px @light-tan inset;
+  -webkit-box-shadow: 0 0 0px 1000px @light-grey inset;
 }
 // Force Chrome to remove the arrows and built in input features
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
+// Set universal button states
+button:focus {
+  outline: 0;
+}
+
+button:hover,
+button:active {
+  opacity: 0.7;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+}
 
 .main-container {
-  background-image: @brown;
+  background-image: @blue-radial;
   border: @2px-black;
+  border-radius: 5%;
+  margin-bottom: 1%;
   padding-left: 0px !important;
   padding-right: 0px !important;
   postion: relative;
-  border-radius: 5%;
-overflow: auto;
+  overflow: auto;
 }
 
 .main-container__content {
-  background-color: @tan;
+  background-color: @soft-peach;
   margin-right: auto;
   margin-left: auto;
   width: 100%;
@@ -112,6 +117,7 @@ overflow: auto;
 }
 
 // START Initial Page
+
 .send-money-btn,
 .view-transaction-hist-btn {
   background-image: @choice-btn;
@@ -149,7 +155,7 @@ overflow: auto;
 }
 
 .homeFooter {
-  background-color: @brown;
+  background-color: @blue-radial;
   margin-bottom: 15%;
 }
 // END Initial Page
@@ -172,7 +178,7 @@ overflow: auto;
 }
 
 .wrapper {
-  background-color: @light-tan;
+  background-color: @light-grey;
   border: @2px-black;
   border-radius: 15px;
   margin: 4%;
@@ -193,7 +199,7 @@ overflow: auto;
   }
 
   .email-input {
-    background-color: @light-tan;
+    background-color: @light-grey;
     border: none;
     outline: @no-outline;
     width: 50%;
@@ -212,7 +218,7 @@ overflow: auto;
   margin-top: -6px;
 
   .currency-btn, .dropdown-toggle {
-    background-image: @brown;
+    background-image: @blue-radial;
     border: @2px-black;
     border-radius: 6px;
     color: @white;
@@ -222,6 +228,7 @@ overflow: auto;
     border-right: none;
     padding-right: 5px;
   }
+
   .dropdown-toggle {
     border-left: none;
     padding-left: 5px;
@@ -245,7 +252,7 @@ overflow: auto;
 }
 
 .payment-choice-wrapper {
-  background-color: @light-tan;
+  background-color: @light-grey;
   border: @2px-black;
   border-radius: 15px;
   margin: 4%;
@@ -280,7 +287,7 @@ overflow: auto;
 // Footer buttons
 
 .btn-group-footer {
-  background-image: @brown;
+  background-image: @blue-radial;
   margin-top: 10%;
   padding-bottom: 15%;
   padding-top: 3%;
@@ -326,6 +333,7 @@ overflow: auto;
 .success-wrapper {
   padding: 35% 0;
 }
+
 .confirmation {
   font-size: @font-size-2;
   font-weight: @font-weight-400;
@@ -367,11 +375,11 @@ overflow: auto;
   overflow: scroll;
 
   .list-group-item {
-    background-color:HSLA(0, 0%, 89%, 1);
+    cursor: pointer;
+    background-color: @light-grey;
     border: none;
     font-size: @font-size-2;
     font-weight: @font-weight-400;
-    cursor: pointer;
   }
 
   .list-group-item:hover {
@@ -393,12 +401,13 @@ overflow: auto;
   .delete-list-group-item__btn {
     float: right;
     margin-right: 2%;
+    margin-bottom: 1%;
   }
 }
 
 // accordion expand class
 .js-list-group-item__transaction-show-inner-content {
-  height: 22% !important;
+  height: auto !important;
   padding-top: 1%;
   width: 100%;
 }
@@ -415,7 +424,7 @@ overflow: auto;
 }
 
 .transaction-btn-wrapper {
-  background-image: @brown;
+  background-image: @blue-radial;
   padding-bottom: 3%;
   padding-top: 3%;
 

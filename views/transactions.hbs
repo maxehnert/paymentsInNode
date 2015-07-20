@@ -4,13 +4,13 @@
     {{! iterate over the list of transactions }}
     {{#each transactions}}
       <div class="row list-group-item js-list-group-item_transactions" data-id={{_id}}>
-        <div class="list-group-item__transaction-date col-md-4">
+        <div class="list-group-item__transaction-date col-md-4 col-sm-12">
           {{dateString}}
         </div>
-        <div class="list-group-item__transaction-email col-md-4">
+        <div class="list-group-item__transaction-email col-md-4 col-sm-12">
           {{email}}
         </div>
-        <div class="list-group-item__transaction-currency col-md-4">
+        <div class="list-group-item__transaction-currency col-md-4 col-sm-12">
           {{currencySymbol}}{{amount}}
         </div>
       </div>
