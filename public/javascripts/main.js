@@ -1,7 +1,7 @@
 /*
  * regex to parse the currency input corectly
 */
-$(".js-payment-amount-input").blur( function() {
+$('.js-payment-amount-input').blur( function() {
 
   // regex to parse value
   this.value =
@@ -54,18 +54,18 @@ function myCurrencyIndexOf(symbol) {
 /*
  * Inserts <li> list of values into the currency dropdown
 */
-$.each( currencyData, function( key, val ) {
+currencyData.forEach( function( key, val ) {
 
   var $li = $("<li name='currency'><a href='#'>" +
-    val.currency + "</a></li>");
+    key.currency + "</a></li>");
 
-  $(".dropdown-menu").append( $li );
- });
+  $('.dropdown-menu').append( $li );
+});
 
 /*
  * Identify which currency symbol and type was selected
 */
-$(".dropdown-menu li").click( function() {
+$('.dropdown-menu li').click( function() {
 
   // Check which currency was chosen from the loop
   var currentIndex = myCurrencyIndexOf( this.textContent );
@@ -90,6 +90,22 @@ function getCurrency(currency, symbol) {
 };
 
 /*
+ * Watch the email input for a valid response
+ * If valid then show the check mark when it loses focus
+*/
+$('.js-email-input').change(
+  function(e){
+    e.preventDefault();
+
+    if ( $('.js-email-input')[0].checkValidity() ) {
+      $('.js-email-valid-icon').show();
+    } else {
+      $('.js-email-valid-icon').hide();
+    }
+  }
+);
+
+/*
  * Clear the Form field
 */
 $('.js-clear-form-btn').click( function(e) {
@@ -108,27 +124,11 @@ $('.js-clear-form-btn').click( function(e) {
 */
 $('.js-next-page-link').click( function() {
 
-  if ( $('.send-form')[0].checkValidity() ) {
+  if ( $('.js-send-form')[0].checkValidity() ) {
     $('.overlay').addClass( 'overlay__flash' );
     $('.overlay i').addClass( 'fa fa-spinner fa-pulse fa-5x' );
   }
 });
-
-/*
- * Watch the email input for a valid response
- * If valid then show the check mark when it loses focus
-*/
-$('.js-email-input').change(
-  function(e){
-    e.preventDefault();
-
-    if ( $('.js-email-input')[0].checkValidity() ) {
-      $('.js-email-valid-icon').show();
-    } else {
-      $('.js-email-valid-icon').hide();
-    }
-  }
-);
 
 /*
  * Watch the payment type and toggle the icons and font color
@@ -171,7 +171,7 @@ $('.js-delete-list-group-item__btn').click( function() {
 
   var $elParent = $(this).parent();
   var $elParentPrevious = $(this).parent().prev();
-  var $id = $(this).parent().prev().attr("data-id");
+  var $id = $(this).parent().prev().attr('data-id');
 
   $.ajax({
     type: 'DELETE',
