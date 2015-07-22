@@ -41,7 +41,7 @@ var currencyData = [
 /*
  * Loop through the currency array
 */
-function myCurrencyIndexOf(symbol) {
+function myCurrencyIndexOf( symbol ) {
 
    for ( var i = 0; i < currencyData.length; i++ ) {
        if ( currencyData[i].currency == symbol ) {
@@ -79,7 +79,7 @@ $('.dropdown-menu li').click( function() {
 /*
  * Swap currency type and symbol
 */
-function getCurrency(currency, symbol) {
+function getCurrency( currency, symbol ) {
 
   // Inserts visible currency type to button
   $('.js-currency-btn').text( currency );
