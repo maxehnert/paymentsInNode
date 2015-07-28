@@ -114,6 +114,19 @@ body {
   margin: 15%;
 }
 
+// Naigation Bar
+
+.navbar-brand,
+.navbar-nav a {
+  color: @payment-blue !important;
+}
+
+.navbar-brand:hover,
+.navbar-nav a:hover {
+  color: black !important;
+}
+
+
 // START Initial Page
 
 .send-money-btn,
@@ -161,10 +174,6 @@ body {
 // START Send Money Page
 .send-form {
   padding-top: 1%;
-}
-
-.amount-input {
-  text-indent: 50px;
 }
 
 .input-email-prepend,
@@ -401,9 +410,21 @@ body {
   }
 
   .delete-list-group-item__btn {
+    color: white;
+    background-color: red;
+    border-radius: 50%;
     float: right;
+    height: 35px;
     margin-right: 2%;
     margin-bottom: 1%;
+  }
+  .delete-btn-label {
+    float: right;
+
+    margin-right: 2%;
+
+    margin-bottom: 1%;
+
   }
 }
 

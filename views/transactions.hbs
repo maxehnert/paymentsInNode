@@ -14,20 +14,25 @@
           {{currencySymbol}}{{amount}}
         </div>
       </div>
-      <div class="js-list-group-item__transaction-inner-content list-group-item__transaction-inner-content">
+      <div class="js-list-group-item__transaction-inner-content list-group-item__transaction-inner-content" aria-hidden="true">
         <div class="col-md-12 list-group-item__transaction-service">
           Type of Service: {{service}}
         </div>
         <div class="col-md-12 list-group-item__transaction-message">
           Message: {{message}}
         </div>
-        <button type="button" name="button" class="btn btn-danger js-delete-list-group-item__btn delete-list-group-item__btn">Delete</button>
+        <button role="button"
+                name="delete button"
+                class="btn js-delete-list-group-item__btn delete-list-group-item__btn">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+
       </div>
     {{/each}}
   </div>
 </div>
 <div class="transaction-btn-wrapper"> <!-- Footer Button Section-->
   <a href="/" class="back-home-link">
-    <button class="btn btn-group back-home-btn">Back</button>
+    <button role="button" name="back button" class="btn btn-group back-home-btn">Back</button>
   </a>
 </div>

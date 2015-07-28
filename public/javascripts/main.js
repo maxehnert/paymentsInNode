@@ -4,14 +4,10 @@
 $('.js-payment-amount-input').blur( function() {
 
   // regex to parse value
-  this.value =
-    parseFloat(
-      this.value
-        // remove commas
-        .replace(/,/g, ""))
-        .toFixed(2)
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  this.value = parseFloat( this.value.replace(/,/g, "") )
+                .toFixed(2)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   // if regex returns NaN replace blank value
   if ( this.value == "NaN" ) {
@@ -159,10 +155,15 @@ $('.js-list-group-item_transactions').click( function(e) {
   var $showInnerContent = "js-list-group-item__transaction-show-inner-content";
 
   if ( $(this).next().hasClass( $showInnerContent ) ) {
+
     $( $innerContent ).removeClass( $showInnerContent );
+    $( $innerContent ).attr("aria-hidden", "true");
   } else {
+
     $( $innerContent ).removeClass( $showInnerContent );
+    $( $innerContent ).attr("aria-hidden", "true");
     $(this).next().addClass( $showInnerContent );
+    $(this).next().attr("aria-hidden", "false");
   }
 });
 
