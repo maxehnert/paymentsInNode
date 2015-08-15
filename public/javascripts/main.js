@@ -93,10 +93,18 @@ $('.js-email-input').change(
   function(e){
     e.preventDefault();
 
+    // if ( $('.js-email-input')[0].checkValidity() ) {
+    //   $('.js-email-valid-icon').show();
+    // } else {
+    //   $('.js-email-valid-icon').hide();
+    //   //$('.js-email-invalid-icon').show();
+    // }
     if ( $('.js-email-input')[0].checkValidity() ) {
-      $('.js-email-valid-icon').show();
+      $('.js-email-valid-icon').removeClass('email-invalid-icon');
+      $('.js-email-valid-icon').addClass('a-email-valid-icon');
     } else {
-      $('.js-email-valid-icon').hide();
+      $('.js-email-valid-icon').removeClass('a-email-valid-icon');
+      $('.js-email-valid-icon').addClass('email-invalid-icon');
     }
   }
 );
